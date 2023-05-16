@@ -1,4 +1,5 @@
 /* eslint-disable import/extensions */
+import bombsArround from './bombs-arround.js';
 import { matrix } from './generate-matrix.js';
 
 // проверка на бомбу
@@ -9,6 +10,23 @@ function isBomb(row, column) {
   return false;
 }
 
+function openBlock(row, column) {
+  const items = document.querySelectorAll('.game__block');
+  const block = [...items];
+  const ind = row * 10 + column;
+  const item = block[ind];
+  if (isBomb(row, column)) {
+    item.innerHTML = '💣';
+  } else {
+    const count = bombsArround(row, column);
+    if (count !== 0) {
+      item.innerHTML = count;
+    } else {
+      item.innerHTML = '';
+    }
+  }
+}
+
 export default function boxClick() {
   const items = document.querySelectorAll('.game__block');
   const block = [...items];
@@ -17,9 +35,7 @@ export default function boxClick() {
       const index = block.indexOf(event.target);
       const column = index % 10;
       const row = Math.trunc(index / 10);
-      // console.log(`${row} and ${column}`);
-      // console.log(`${item.innerHTML}`);
-      item.innerHTML = isBomb(row, column) ? 'X' : '';
+      openBlock(row, column);
     });
   });
 }
