@@ -1,4 +1,6 @@
-import { matrix } from './generate-matrix';
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-cycle */
+import { matrix } from './generate-matrix.js';
 
 export default function bombsArround(x, y) {
   let count = 0;

@@ -1,5 +1,8 @@
+/* eslint-disable import/extensions */
+import { matrix } from './generate-matrix.js';
+
 /* eslint-disable no-trailing-spaces */
-export default function generateBlocks() {
+export default function generateBlocks(size) {
   const headerClasses = ['game-flag', 'game-status', 'game-score'];
   const MAIN = document.createElement('main');
   MAIN.classList.add('block');
@@ -26,12 +29,13 @@ export default function generateBlocks() {
   // тело игры
   const BODY = document.createElement('div');
   BODY.classList.add('game__body');
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < size; i += 1) {
     const elem = document.createElement('div');
     elem.classList.add('game__row');
-    for (let j = 0; j < 10; j += 1) {
+    for (let j = 0; j < size; j += 1) {
       const block = document.createElement('div');
       block.classList.add('game__block');
+      block.innerHTML = matrix[i][j];
       elem.appendChild(block);
     }
     BODY.appendChild(elem);

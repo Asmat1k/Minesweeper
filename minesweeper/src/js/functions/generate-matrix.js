@@ -1,3 +1,6 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-cycle */
+
 export const matrix = [];
 
 // Рандомное число
@@ -20,7 +23,7 @@ function setBobms(bombCount) {
 }
 
 // Создание матрицы
-export function genMatrix(size) {
+export default function genMatrix(size) {
   for (let i = 0; i < size; i += 1) {
     matrix[i] = [];
     for (let j = 0; j < size; j += 1) {
