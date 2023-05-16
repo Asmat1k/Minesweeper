@@ -11,6 +11,7 @@ function isBomb(row, column) {
 }
 
 function openBlock(row, column) {
+  let numberClass = ['num_0','num_1','num_2','num_3','num_4'];
   const items = document.querySelectorAll('.game__block');
   const block = [...items];
   const ind = row * 10 + column;
@@ -21,8 +22,10 @@ function openBlock(row, column) {
     const count = bombsArround(row, column);
     if (count !== 0) {
       item.innerHTML = count;
+      item.classList.add(numberClass[count]);
     } else {
       item.innerHTML = '';
+      item.classList.add('game__block_opened');
     }
   }
 }

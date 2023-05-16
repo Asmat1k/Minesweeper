@@ -80,18 +80,22 @@ body {
         }
         .num_1 {
           color: rgb(45, 45, 255);
+          font-weight: 600;
         }
         .num_2 {
           color: green;
+          font-weight: 600;
         }
         .num_3 {
           color: red;
+          font-weight: 600;
         }
         .num_4 {
           color: blue;
+          font-weight: 600;
         }
         .game__block_opened {
-          width: 34px;
+          width: 33px;
           height: 34px;
           color: black;
           border: 1px solid rgb(168, 168, 168);
