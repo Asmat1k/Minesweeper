@@ -11,7 +11,7 @@ function isBomb(row, column) {
 }
 
 function openBlock(row, column) {
-  let numberClass = ['num_0','num_1','num_2','num_3','num_4'];
+  const numberClass = ['num_0', 'num_1', 'num_2', 'num_3', 'num_4'];
   const items = document.querySelectorAll('.game__block');
   const block = [...items];
   const ind = row * 10 + column;
