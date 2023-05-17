@@ -19,7 +19,7 @@ export default function generateBlocks(size) {
     elem.classList.add(headerClasses[i]);
     if (i === 0 || i === 2) {
       elem.classList.add('numbers');
-      elem.innerHTML = '123';
+      elem.innerHTML = '000';
     } else if (i === 1) {
       elem.classList.add('smile');
       elem.innerHTML = '🙂';
@@ -54,16 +54,15 @@ export default function generateBlocks(size) {
   FOOTER.appendChild(block);
   WRAPPER.appendChild(FOOTER);
 
-  // футер игры
-  //  const FINAL_MESSAGE = document.createElement('div');
-  //  FINAL_MESSAGE.classList.add('game_end-message');
-  //  const block = document.createElement('div');
-  //  block.classList.add('game__block');
-  //  block.classList.add('flag');
-  //  block.innerHTML = '🚩';
-  //  FOOTER.appendChild(block);
+  // Конец игры
+  const FINAL_MESSAGE = document.createElement('div');
+  FINAL_MESSAGE.classList.add('game_end-message');
+  const TEXT = document.createElement('div');
+  TEXT.classList.add('message-text');
+  TEXT.innerHTML = 'GAME OVER';
+  FINAL_MESSAGE.appendChild(TEXT);
 
-  MAIN.appendChild(WRAPPER);
+  WRAPPER.appendChild(FINAL_MESSAGE);
   MAIN.appendChild(WRAPPER);
 
   document.body.appendChild(MAIN);
