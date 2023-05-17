@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/extensions */
 import { matrix } from './generate-matrix.js';
 
@@ -20,6 +21,7 @@ export default function generateBlocks(size) {
       elem.classList.add('numbers');
       elem.innerHTML = '123';
     } else if (i === 1) {
+      elem.classList.add('smile');
       elem.innerHTML = '🙂';
     }
     HEADER.appendChild(elem);
@@ -35,7 +37,7 @@ export default function generateBlocks(size) {
     for (let j = 0; j < size; j += 1) {
       const block = document.createElement('div');
       block.classList.add('game__block');
-      block.innerHTML = matrix[i][j];
+      // block.innerHTML = matrix[i][j];
       elem.appendChild(block);
     }
     BODY.appendChild(elem);
@@ -47,10 +49,21 @@ export default function generateBlocks(size) {
   FOOTER.classList.add('game__footer');
   const block = document.createElement('div');
   block.classList.add('game__block');
+  block.classList.add('flag');
   block.innerHTML = '🚩';
   FOOTER.appendChild(block);
   WRAPPER.appendChild(FOOTER);
 
+  // футер игры
+  //  const FINAL_MESSAGE = document.createElement('div');
+  //  FINAL_MESSAGE.classList.add('game_end-message');
+  //  const block = document.createElement('div');
+  //  block.classList.add('game__block');
+  //  block.classList.add('flag');
+  //  block.innerHTML = '🚩';
+  //  FOOTER.appendChild(block);
+
+  MAIN.appendChild(WRAPPER);
   MAIN.appendChild(WRAPPER);
 
   document.body.appendChild(MAIN);
