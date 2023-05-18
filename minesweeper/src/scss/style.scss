@@ -2,6 +2,7 @@
 
 body {
   overflow: hidden;
+  background-color: #cacaca;
 }
 
 .block {
@@ -165,7 +166,7 @@ body {
   .block {
     .game__wrapper {
       width: 320px;
-      height: 440px;
+      height: 490px;
       .game__header {
         .game-status {
           width: 20px;
@@ -178,9 +179,9 @@ body {
         }
       }
       .game__body {
-        height: 67%;
+        height: 60%;
         .game__row {
-          height: 25px;
+          height: 29px;
           .game__block {
             font-size: 18px;
             width: 20px;
@@ -207,7 +208,7 @@ body {
   .block {
     .game__wrapper {
       width: 290px;
-      height: 400px;
+      height: 450px;
       .game__header {
         .game-status {
           width: 20px;
@@ -220,17 +221,17 @@ body {
         }
       }
       .game__body {
-        height: 66%;
+        height: 58%;
         .game__row {
-          height: 25px;
+          height: 26px;
           .game__block {
             font-size: 18px;
             width: 17px;
             height: 17px;
           }
           .game__block_opened {
-            width: 26px;
-            height: 26px;
+            width: 25px;
+            height: 25px;
           }
         }
       }
@@ -250,7 +251,7 @@ body {
   .block {
     .game__wrapper {
       width: 270px;
-      height: 390px;
+      height: 430px;
       .game__header {
         .game-status {
           width: 20px;
@@ -263,7 +264,7 @@ body {
         }
       }
       .game__body {
-        height: 63%;
+        height: 59%;
         .game__row {
           height: 25px;
           .game__block {
@@ -272,8 +273,8 @@ body {
             height: 15px;
           }
           .game__block_opened {
-            width: 28px;
-            height: 28px;
+            width: 23px;
+            height: 23px;
           }
         }
       }
