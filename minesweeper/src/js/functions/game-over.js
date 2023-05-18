@@ -2,7 +2,6 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-unused-vars */
 
-import newGame from './new-game.js';
 import { stopTimer } from './timer.js';
 
 export default function gameOver(message) {
@@ -11,5 +10,4 @@ export default function gameOver(message) {
   MESSAGE.innerHTML = message;
   END.classList.add('shown');
   stopTimer();
-  newGame();
 }

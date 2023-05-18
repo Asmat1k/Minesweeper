@@ -24,9 +24,10 @@ export default function openBlock(row, column) {
   const item = items[ind];
   const loose = 'GAME OVER';
   const win = 'YOU WIN';
-  // проверка на попадание в границы
+  // проверки
   if (!inBorders(row, column)) return;
   if (item.classList.contains('game__block_opened')) return;
+  if (item.innerHTML === '🚩') return;
   // если бомба
   if (isBomb(row, column)) {
     gameOver(loose);

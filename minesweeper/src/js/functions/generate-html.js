@@ -4,7 +4,7 @@ import { matrix } from './generate-matrix.js';
 
 /* eslint-disable no-trailing-spaces */
 export default function generateBlocks(size) {
-  const headerClasses = ['game-flag', 'game-status', 'game-score'];
+  const headerClasses = ['game-click', 'game-status', 'game-score'];
   const MAIN = document.createElement('main');
   MAIN.classList.add('block');
   
@@ -50,7 +50,7 @@ export default function generateBlocks(size) {
   const block = document.createElement('div');
   block.classList.add('game__block');
   block.classList.add('flag');
-  block.innerHTML = '🚩';
+  block.innerHTML = '⛏️';
   FOOTER.appendChild(block);
   WRAPPER.appendChild(FOOTER);
 
