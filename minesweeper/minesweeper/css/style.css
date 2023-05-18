@@ -14,7 +14,7 @@ body {
 .block .game__wrapper {
   position: relative;
   width: 369px;
-  height: 480px;
+  height: 520px;
   background-color: #b8b8b8;
   border: 5px solid;
   border-color: #c7c7c7 #9e9e9e #9e9e9e #c7c7c7;
@@ -43,24 +43,12 @@ body {
   transform: scale(0.9);
   transition: 0.1s;
 }
-.block .game__wrapper .game__header .numbers {
-  font-family: "VT323";
-  font-size: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  color: red;
-  background-color: black;
-  border: 2px solid;
-  border-color: #9e9e9e #c7c7c7 #c7c7c7 #9e9e9e;
-}
 .block .game__wrapper .game__body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 0;
-  height: 72%;
+  height: 66%;
   margin: 5px;
   padding: 1px;
   border: 5px solid;
@@ -120,17 +108,20 @@ body {
 .block .game__wrapper .game__footer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 5px;
+  padding: 5px;
+  border: 5px solid;
+  border-color: #9e9e9e #c7c7c7 #c7c7c7 #9e9e9e;
 }
 .block .game__wrapper .game__footer .game__block {
-  font-family: "VT323";
-  font-size: 20px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   width: 25px;
   height: 25px;
+  padding: 5px;
   border: 5px solid;
   border-color: #c7c7c7 #9e9e9e #9e9e9e #c7c7c7;
 }
@@ -153,6 +144,19 @@ body {
 }
 .block .game__wrapper .shown {
   display: flex;
+}
+
+.numbers {
+  font-family: "VT323";
+  font-size: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  color: red;
+  background-color: black;
+  border: 2px solid;
+  border-color: #9e9e9e #c7c7c7 #c7c7c7 #9e9e9e;
 }
 
 @media (max-width: 425px) {

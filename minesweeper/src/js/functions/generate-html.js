@@ -5,6 +5,7 @@ import { matrix } from './generate-matrix.js';
 /* eslint-disable no-trailing-spaces */
 export default function generateBlocks(size) {
   const headerClasses = ['game-click', 'game-status', 'game-score'];
+  const footerClasses = ['game-mines', 'game-block', 'game-flags'];
   const MAIN = document.createElement('main');
   MAIN.classList.add('block');
   
@@ -47,11 +48,20 @@ export default function generateBlocks(size) {
   // футер игры
   const FOOTER = document.createElement('div');
   FOOTER.classList.add('game__footer');
-  const block = document.createElement('div');
-  block.classList.add('game__block');
-  block.classList.add('flag');
-  block.innerHTML = '⛏️';
-  FOOTER.appendChild(block);
+  for (let i = 0; i < 3; i += 1) {
+    const block = document.createElement('div');
+    block.classList.add(footerClasses[i]);
+    if (i === 0 || i === 2) {
+      block.classList.add('numbers');
+      if (i === 0) block.innerHTML = `0${size}`;
+      if (i === 2) block.innerHTML = '000';
+    } else {
+      block.classList.add('game__block');
+      block.classList.add('flag');
+      block.innerHTML = '⛏️';
+    }
+    FOOTER.appendChild(block);
+  }
   WRAPPER.appendChild(FOOTER);
 
   // Конец игры
