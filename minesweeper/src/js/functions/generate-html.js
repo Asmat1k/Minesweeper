@@ -59,7 +59,6 @@ export default function generateBlocks(size) {
   FINAL_MESSAGE.classList.add('game_end-message');
   const TEXT = document.createElement('div');
   TEXT.classList.add('message-text');
-  TEXT.innerHTML = 'GAME OVER';
   FINAL_MESSAGE.appendChild(TEXT);
 
   WRAPPER.appendChild(FINAL_MESSAGE);

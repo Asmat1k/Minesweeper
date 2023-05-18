@@ -80,24 +80,24 @@ body {
           border: 5px solid;
           border-color: #c7c7c7 #9e9e9e #9e9e9e #c7c7c7;
         }
+        .num {
+          cursor: auto;
+          font-weight: 600;
+        }
         .num_0 {
           color: #b8b8b8;
         }
         .num_1 {
           color: rgb(45, 45, 255);
-          font-weight: 600;
         }
         .num_2 {
           color: green;
-          font-weight: 600;
         }
         .num_3 {
           color: red;
-          font-weight: 600;
         }
         .num_4 {
           color: blue;
-          font-weight: 600;
         }
         .bomb {
           background-color: red;

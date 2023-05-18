@@ -5,7 +5,6 @@ import gameOver from './game-over.js';
 import inBorders from './in-borders.js';
 import bombsArround from './bombs-arround.js';
 import { matrix } from './generate-matrix.js';
-import timer from './sec.js';
 
 // проверка на бомбу
 function isBomb(row, column) {
@@ -20,25 +19,36 @@ export default function openBlock(row, column) {
   const items = document.querySelectorAll('.game__block');
   const smile = document.querySelector('.smile');
   const numberClass = ['num_0', 'num_1', 'num_2', 'num_3', 'num_4'];
+  let nonBombBlocks = 0;
   const ind = row * 10 + column;
   const item = items[ind];
+  const loose = 'GAME OVER';
+  const win = 'YOU WIN';
   // проверка на попадание в границы
   if (!inBorders(row, column)) return;
   if (item.classList.contains('game__block_opened')) return;
   // если бомба
   if (isBomb(row, column)) {
-    gameOver();
+    gameOver(loose);
     smile.innerHTML = '😞';
     item.innerHTML = '💣';
-    timer(0, false);
     item.classList.add('bomb');
     item.classList.add('game__block_opened');
     return;
+  }
+  items.forEach((block) => {
+    if (block.classList.contains('game__block_opened') || block.classList.contains('num')) {
+      nonBombBlocks += 1;
+    }
+  });
+  if (nonBombBlocks >= 89) {
+    gameOver(win);
   }
   // сколько бомб рядом
   const count = bombsArround(row, column);
   if (count !== 0) {
     item.innerHTML = count;
+    item.classList.add('num');
     item.classList.add(numberClass[count]);
     return;
   }
