@@ -9,12 +9,12 @@ function getRandomArbitrary(min, max) {
 }
 
 // Установка бомб
-function setBobms(bombCount) {
+function setBobms(bombCount, row, column) {
   let bombCurCount = bombCount;
   while (bombCurCount) {
     const x = getRandomArbitrary(0, bombCount);
     const y = getRandomArbitrary(0, bombCount);
-    if (matrix[x][y] === 0) {
+    if (matrix[x][y] === 0 && x !== row && y !== column) {
       matrix[x][y] = 1;
       bombCurCount -= 1;
     }

@@ -101,6 +101,12 @@ body {
 .block .game__wrapper .game__body .game__row .num_4 {
   color: blue;
 }
+.block .game__wrapper .game__body .game__row .num_5 {
+  color: #f700ff;
+}
+.block .game__wrapper .game__body .game__row .num_6 {
+  color: #00ccff;
+}
 .block .game__wrapper .game__body .game__row .bomb {
   background-color: red;
 }

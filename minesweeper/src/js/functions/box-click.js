@@ -7,8 +7,10 @@ import openBlock from './open-block.js';
 import flagSet from './flag-set.js';
 import newGame from './new-game.js';
 import click from './click.js';
+import genMatrix from './generate-matrix.js';
 
 let flagStatus = false;
+let isMatrixSet = false;
 
 export default function boxClick() {
   const items = document.querySelectorAll('.game__block');
@@ -24,8 +26,13 @@ export default function boxClick() {
       startTimer();
       // получаем координаты в матрице
       const index = Array.from(items).indexOf(event.target);
-      const column = index % 10;
       const row = Math.trunc(index / 10);
+      const column = index % 10;
+      // если матрицы еще не сгенерирована
+      if (!isMatrixSet) {
+        genMatrix(10, row, column);
+        isMatrixSet = true;
+      }
       // если нажали на флаг
       if (item.classList.contains('flag')) {
         flag.innerHTML = '🚩';

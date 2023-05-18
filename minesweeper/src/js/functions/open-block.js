@@ -18,7 +18,7 @@ function isBomb(row, column) {
 export default function openBlock(row, column) {
   const items = document.querySelectorAll('.game__block');
   const smile = document.querySelector('.smile');
-  const numberClass = ['num_0', 'num_1', 'num_2', 'num_3', 'num_4'];
+  const numberClass = ['num_0', 'num_1', 'num_2', 'num_3', 'num_4', 'num_5', 'num_6'];
   let nonBombBlocks = 0;
   const ind = row * 10 + column;
   const item = items[ind];
