@@ -10,9 +10,9 @@ import click from './click.js';
 import genMatrix from './generate-matrix.js';
 
 let flagStatus = false;
-let isMatrixSet = false;
 
 export default function boxClick() {
+  let isMatrixSet = false;
   const items = document.querySelectorAll('.game__block');
   const flag = document.querySelector('.flag');
   newGame();

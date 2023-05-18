@@ -3,7 +3,6 @@
 import boxClick from './box-click.js';
 import click from './click.js';
 import generateBlocks from './generate-html.js';
-import genMatrix from './generate-matrix.js';
 import { resetTimer } from './timer.js';
 
 function gameReset() {
@@ -12,7 +11,6 @@ function gameReset() {
   click(true);
   document.body.innerHTML = '';
   resetTimer();
-  genMatrix(10);
   generateBlocks(10);
   boxClick();
 }

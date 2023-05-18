@@ -23,7 +23,7 @@ function setBobms(bombCount, row, column) {
 }
 
 // Создание матрицы
-export default function genMatrix(size) {
+export default function genMatrix(size, row, column) {
   for (let i = 0; i < size; i += 1) {
     matrix[i] = [];
     for (let j = 0; j < size; j += 1) {
@@ -31,5 +31,5 @@ export default function genMatrix(size) {
     }
   }
   console.log('Матрица создана');
-  setBobms(size);
+  setBobms(size, row, column);
 }
