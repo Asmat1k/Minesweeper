@@ -2,7 +2,7 @@
 /* eslint-disable import/no-self-import */
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/extensions */
-import click from './clicks.js';
+import startTimer from './timer.js';
 import openBlock from './open-block.js';
 
 export default function boxClick() {
@@ -10,9 +10,7 @@ export default function boxClick() {
   items.forEach((item) => {
     item.addEventListener('click', (event) => {
       // запуск таймера
-      if (!item.classList.contains('game__block_opened') && !item.classList.contains('num')) {
-        click();
-      }
+      startTimer();
       const index = Array.from(items).indexOf(event.target);
       // получаем координаты в матрице
       const column = index % 10;
