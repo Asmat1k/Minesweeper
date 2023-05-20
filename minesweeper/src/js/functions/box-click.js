@@ -8,6 +8,7 @@ import flagSet from './flag-set.js';
 import newGame from './new-game.js';
 import click from './click.js';
 import genMatrix from './generate-matrix.js';
+import blockOnClick, { flagClick } from './sound.js';
 
 export default function boxClick() {
   let flagStatus = false;
@@ -42,10 +43,19 @@ export default function boxClick() {
         flagStatus = !flagStatus;
         flagSet();
       }
+      if (flagStatus && !item.classList.contains('flag') && !item.classList.contains('game__block_opened') && !item.classList.contains('num') && !item.classList.contains('flag')) {
+        if (item.innerHTML === '🚩') {
+          flagClick(false);
+        } else {
+          flagClick(true);
+        }
+      }
       // если не режим флага
       if (!flagStatus) {
         flag.innerHTML = '⛏️';
-        openBlock(row, column);
+        if (openBlock(row, column)) {
+          blockOnClick();
+        }
       }
     });
   });

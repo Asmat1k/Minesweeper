@@ -5,6 +5,7 @@ import gameOver from './game-over.js';
 import inBorders from './in-borders.js';
 import bombsArround from './bombs-arround.js';
 import { matrix } from './generate-matrix.js';
+import { bombClick } from './sound.js';
 
 // проверка на бомбу
 function isBomb(row, column) {
@@ -25,17 +26,18 @@ export default function openBlock(row, column) {
   const loose = 'GAME OVER';
   const win = 'YOU WIN';
   // проверки
-  if (!inBorders(row, column)) return;
-  if (item.classList.contains('game__block_opened')) return;
-  if (item.innerHTML === '🚩') return;
+  if (!inBorders(row, column)) return false;
+  if (item.classList.contains('game__block_opened')) return false;
+  if (item.innerHTML === '🚩') return false;
   // если бомба
   if (isBomb(row, column)) {
-    gameOver(loose);
+    gameOver(loose, false);
+    bombClick();
     smile.innerHTML = '😞';
     item.innerHTML = '💣';
     item.classList.add('bomb');
     item.classList.add('game__block_opened');
-    return;
+    return false;
   }
   items.forEach((block) => {
     if (block.classList.contains('game__block_opened') || block.classList.contains('num')) {
@@ -43,7 +45,7 @@ export default function openBlock(row, column) {
     }
   });
   if (nonBombBlocks >= 89) {
-    gameOver(win);
+    gameOver(win, true);
   }
   // сколько бомб рядом
   const count = bombsArround(row, column);
@@ -51,7 +53,7 @@ export default function openBlock(row, column) {
     item.innerHTML = count;
     item.classList.add('num');
     item.classList.add(numberClass[count]);
-    return;
+    return true;
   }
   // если бомб нет рядом открываем через рекурсию
   item.innerHTML = '';
@@ -61,4 +63,5 @@ export default function openBlock(row, column) {
       openBlock(row + j, column + i);
     }
   }
+  return true;
 }

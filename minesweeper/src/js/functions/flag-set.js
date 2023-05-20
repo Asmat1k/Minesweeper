@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+
 /* eslint-disable no-param-reassign */
 let flagCount = 0;
 
