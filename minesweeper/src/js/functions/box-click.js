@@ -20,7 +20,7 @@ export default function boxClick() {
   items.forEach((item) => {
     item.addEventListener('click', (event) => {
       // если это поле
-      if (!item.classList.contains('game__block_opened') && !item.classList.contains('num') && !item.classList.contains('flag')) {
+      if (!(item.innerHTML === '🚩') && !item.classList.contains('game__block_opened') && !item.classList.contains('num') && !item.classList.contains('flag')) {
         click(false);
       }
       // получаем координаты в матрице
