@@ -14,11 +14,11 @@ function setLocalStorage(name, status) {
 function gameReset() {
   const END = document.querySelector('.game_end-message');
   const switchBtn = document.querySelector('.switch__input');
-  END.classList.remove('shown');
   setLocalStorage('audio', `${switchBtn.classList.contains('on') ? true : false}`);
+  END.classList.remove('shown');
   click(true);
-  document.body.innerHTML = '';
   resetTimer();
+  document.body.innerHTML = '';
   generateBlocks(10);
   boxClick();
 }
