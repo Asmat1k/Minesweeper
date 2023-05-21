@@ -1,27 +1,24 @@
-export default function blockOnClick() {
-  const audio = new Audio();
-  audio.src = '/files/click.mp3';
-  audio.volume = 0.4;
-  audio.autoplay = true;
+/* eslint-disable import/extensions */
+import { audioOff, setAudio } from './audio.js';
+
+// из локал сторэдж
+function getLocalStorage() {
+  const switchBtn = document.querySelector('.switch__input');
+  if (localStorage.getItem('audio') === 'true') {
+    switchBtn.classList.add('on');
+    switchBtn.checked = true;
+  }
 }
 
-export function flagClick(set) {
-  const audio = new Audio();
-  audio.src = set ? '/files/flag.mp3' : '/files/flag-off.mp3';
-  audio.volume = 0.3;
-  audio.autoplay = true;
-}
-
-export function bombClick() {
-  const audio = new Audio();
-  audio.src = '/files/bomb.mp3';
-  audio.volume = 0.3;
-  audio.autoplay = true;
-}
-
-export function gameOverSound(isWin) {
-  const audio = new Audio();
-  audio.src = isWin ? '/files/win.mp3' : '/files/game-over.mp3';
-  audio.volume = 0.2;
-  audio.autoplay = true;
+export default function controlAudio() {
+  getLocalStorage();
+  const switchBtn = document.querySelector('.switch__input');
+  switchBtn.addEventListener('click', () => {
+    switchBtn.classList.toggle('on');
+    if (switchBtn.classList.contains('on')) {
+      setAudio();
+    } else {
+      audioOff();
+    }
+  });
 }

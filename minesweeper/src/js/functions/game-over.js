@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-unused-vars */
 
-import { gameOverSound } from './sound.js';
+import { gameOverSound } from './audio.js';
 import { stopTimer } from './timer.js';
 
 export default function gameOver(message, status) {

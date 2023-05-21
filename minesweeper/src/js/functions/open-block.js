@@ -5,7 +5,7 @@ import gameOver from './game-over.js';
 import inBorders from './in-borders.js';
 import bombsArround from './bombs-arround.js';
 import { matrix } from './generate-matrix.js';
-import { bombClick } from './sound.js';
+import { bombClick } from './audio.js';
 
 // проверка на бомбу
 function isBomb(row, column) {

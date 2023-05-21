@@ -8,17 +8,24 @@ import flagSet from './flag-set.js';
 import newGame from './new-game.js';
 import click from './click.js';
 import genMatrix from './generate-matrix.js';
-import blockOnClick, { flagClick } from './sound.js';
+import blockOnClick, { flagClick } from './audio.js';
+import controlAudio from './sound.js';
+import openSettings from './settings.js';
 
 export default function boxClick() {
   let flagStatus = false;
   let isMatrixSet = false;
   let isTimerRun = false;
+  const game = document.querySelector('.game__wrapper');
   const items = document.querySelectorAll('.game__block');
   const flag = document.querySelector('.flag');
   newGame();
+  controlAudio();
+  // setAudio();
+  openSettings();
   items.forEach((item) => {
     item.addEventListener('click', (event) => {
+      game.classList.add('start');
       // если это поле
       if (!(item.innerHTML === '🚩') && !item.classList.contains('game__block_opened') && !item.classList.contains('num') && !item.classList.contains('flag')) {
         click(false);

@@ -70,9 +70,56 @@ export default function generateBlocks(size) {
   const TEXT = document.createElement('div');
   TEXT.classList.add('message-text');
   FINAL_MESSAGE.appendChild(TEXT);
-
+  
   WRAPPER.appendChild(FINAL_MESSAGE);
   MAIN.appendChild(WRAPPER);
+
+  // значок настроек
+  const SETTINGS__ICON = document.createElement('div');
+  SETTINGS__ICON.classList.add('settings__icon');
+  SETTINGS__ICON.innerHTML = '⚙';
+  MAIN.appendChild(SETTINGS__ICON);
+
+  // значок настроек
+  const SETTINGS__POPUP = document.createElement('div');
+  SETTINGS__POPUP.classList.add('settings__popup');
+
+  // значок выхода
+  const SETTINGS__CLOSE = document.createElement('div');
+  SETTINGS__CLOSE.classList.add('settings__close');
+  const SETTINGS__TEXT = document.createElement('span');
+  SETTINGS__TEXT.innerHTML = 'back';
+  SETTINGS__TEXT.classList.add('text');
+  SETTINGS__CLOSE.appendChild(SETTINGS__TEXT);
+
+  // настройка музыки
+  const SETTINGS__MUSIC = document.createElement('div');
+  SETTINGS__MUSIC.classList.add('settings__music');
+
+  const MUSIC__TEXT = document.createElement('div');
+  MUSIC__TEXT.classList.add('settings__text');
+  MUSIC__TEXT.innerHTML = 'MUSIC:';
+  SETTINGS__MUSIC.appendChild(MUSIC__TEXT);
+
+  // переключатель
+  const SWITCH = document.createElement('label');
+  SWITCH.classList.add('switch');
+  
+  const INPUT = document.createElement('input');
+  INPUT.classList.add('switch__input');
+  INPUT.setAttribute('type', 'checkbox');
+  SWITCH.appendChild(INPUT);
+
+  const SPAN = document.createElement('span');
+  SPAN.classList.add('switch__slider');
+  SWITCH.appendChild(SPAN);
+
+  SETTINGS__MUSIC.appendChild(SWITCH);
+
+  SETTINGS__POPUP.appendChild(SETTINGS__CLOSE);
+  SETTINGS__POPUP.appendChild(SETTINGS__MUSIC);
+
+  MAIN.appendChild(SETTINGS__POPUP);
 
   document.body.appendChild(MAIN);
 }
