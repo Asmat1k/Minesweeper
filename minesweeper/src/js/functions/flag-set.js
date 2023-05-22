@@ -1,7 +1,14 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable import/extensions */
+
 /* eslint-disable no-param-reassign */
 let flagCount = 0;
 
-export default function flagSet() {
+export default function flagSet(reset) {
+  if (reset) {
+    flagCount = 0;
+    return;
+  }
   const ITEMS = document.querySelectorAll('.game__block');
   const FLAGC = document.querySelector('.game-flags');
   let finalCount;

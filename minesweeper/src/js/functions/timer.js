@@ -11,7 +11,6 @@ export function stopTimer() {
 export function resetTimer() {
   stopTimer();
   seconds = 0;
-  score.innerHTML = '000';
 }
 
 export default function startTimer() {
