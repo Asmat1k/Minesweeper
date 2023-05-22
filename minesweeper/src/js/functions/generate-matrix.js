@@ -9,11 +9,11 @@ function getRandomArbitrary(min, max) {
 }
 
 // Установка бомб
-function setBobms(bombCount, row, column) {
-  let bombCurCount = bombCount;
+function setBobms(size, row, column, bombs) {
+  let bombCurCount = bombs;
   while (bombCurCount) {
-    const x = getRandomArbitrary(0, bombCount);
-    const y = getRandomArbitrary(0, bombCount);
+    const x = getRandomArbitrary(0, size);
+    const y = getRandomArbitrary(0, size);
     if (matrix[x][y] === 0 && x !== row && y !== column) {
       matrix[x][y] = 1;
       bombCurCount -= 1;
@@ -23,13 +23,13 @@ function setBobms(bombCount, row, column) {
 }
 
 // Создание матрицы
-export default function genMatrix(size, row, column) {
+export default function genMatrix(size, row, column, bombs) {
   for (let i = 0; i < size; i += 1) {
     matrix[i] = [];
     for (let j = 0; j < size; j += 1) {
       matrix[i][j] = 0;
     }
   }
+  setBobms(size, row, column, bombs);
   console.log('Матрица создана');
-  setBobms(size, row, column);
 }

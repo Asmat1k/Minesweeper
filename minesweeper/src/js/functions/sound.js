@@ -1,5 +1,7 @@
+/* eslint-disable no-unneeded-ternary */
 /* eslint-disable import/extensions */
 import { audioOff, setAudio } from './audio.js';
+import setLocalStorage from './set-local.js';
 
 // из локал сторэдж
 function getLocalStorage() {
@@ -15,6 +17,7 @@ export default function controlAudio() {
   const switchBtn = document.querySelector('.switch__input');
   switchBtn.addEventListener('click', () => {
     switchBtn.classList.toggle('on');
+    setLocalStorage('audio', `${switchBtn.classList.contains('on') ? true : false}`);
     if (switchBtn.classList.contains('on')) {
       setAudio();
     } else {

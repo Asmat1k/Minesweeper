@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/no-self-import */
 /* eslint-disable no-use-before-define */
@@ -11,18 +12,25 @@ import genMatrix from './generate-matrix.js';
 import blockOnClick, { flagClick } from './audio.js';
 import controlAudio from './sound.js';
 import openSettings from './settings.js';
+import changeLvL from './lvl-chage.js';
+import getSize from './get-size.js';
+import getBombsCount from './get-bombs.js';
+import changeBombCount from './change-count.js';
+import changeBomb from './change-bomb.js';
 
 export default function boxClick() {
   let flagStatus = false;
   let isMatrixSet = false;
   let isTimerRun = false;
+  const size = getSize() === 0 ? 10 : getSize() === 1 ? 15 : 25;
   const game = document.querySelector('.game__wrapper');
   const items = document.querySelectorAll('.game__block');
   const flag = document.querySelector('.flag');
   newGame();
   controlAudio();
-  // setAudio();
   openSettings();
+  changeLvL();
+  changeBomb();
   items.forEach((item) => {
     item.addEventListener('click', (event) => {
       game.classList.add('start');
@@ -32,12 +40,13 @@ export default function boxClick() {
       }
       // получаем координаты в матрице
       const index = Array.from(items).indexOf(event.target);
-      const row = Math.trunc(index / 10);
-      const column = index % 10;
+      const row = Math.trunc(index / size);
+      const column = index % size;
       // если матрицы еще не сгенерирована
       if (!isMatrixSet && !item.classList.contains('flag')) {
-        genMatrix(10, row, column);
+        genMatrix(size, row, column, getBombsCount());
         isMatrixSet = true;
+        changeBombCount();
       }
       if (!isTimerRun) {
         // запуск таймера если это не флаг
