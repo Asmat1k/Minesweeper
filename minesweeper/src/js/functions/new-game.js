@@ -37,6 +37,7 @@ export function gameReset() {
   getBombCount();
   setLocalStorage('audio', `${switchBtn.classList.contains('on') ? true : false}`);
   setLocalStorage('size', `${openClass[getSize()]}`);
+  if (document.body.classList.contains('dark-body')) document.body.classList.remove('dark-body');
   END.classList.remove('shown');
   click(true);
   flagSet(true);

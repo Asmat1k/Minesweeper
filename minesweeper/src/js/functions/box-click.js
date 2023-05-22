@@ -18,6 +18,7 @@ import getBombsCount from './get-bombs.js';
 import changeBombCount from './change-count.js';
 import changeBomb from './change-bomb.js';
 import openLeaderBoard from './leader-board.js';
+import changeTheme from './theme.js';
 
 export default function boxClick() {
   let flagStatus = false;
@@ -33,6 +34,7 @@ export default function boxClick() {
   openLeaderBoard();
   changeLvL();
   changeBomb();
+  changeTheme();
   items.forEach((item) => {
     item.addEventListener('click', (event) => {
       game.classList.add('start');

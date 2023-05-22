@@ -2,14 +2,19 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-trailing-spaces */
 let score = [];
+let theme;
 
 function getLocalStorage() {
   if (localStorage.getItem('leader')) {
     score = localStorage.getItem('leader').split(',');
   }
+  // if (localStorage.getItem('theme')) {
+  //   theme = localStorage.getItem('theme');
+  // }
 }
 
 export default function generateBlocks(size, classSize) {
+  getLocalStorage();
   const headerClasses = ['game-click', 'game-status', 'game-score'];
   const footerClasses = ['game-mines', 'game-block', 'game-flags'];
   const MAIN = document.createElement('main');
@@ -17,13 +22,15 @@ export default function generateBlocks(size, classSize) {
   
   const WRAPPER = document.createElement('div');
   WRAPPER.classList.add('game__wrapper');
-  WRAPPER.classList.add('light-1');
+  if (theme === 'dark') WRAPPER.classList.add('dark-1');
+  else WRAPPER.classList.add('light-1');
   WRAPPER.classList.add(classSize);
 
   // заполнение хедера
   const HEADER = document.createElement('div');
   HEADER.classList.add('game__header');
-  HEADER.classList.add('light-2');
+  if (theme === 'dark') HEADER.classList.add('dark-2');
+  else HEADER.classList.add('light-2');
   for (let i = 0; i < 3; i += 1) {
     const elem = document.createElement('div');
     elem.classList.add(headerClasses[i]);
@@ -32,7 +39,8 @@ export default function generateBlocks(size, classSize) {
       elem.innerHTML = '000';
     } else if (i === 1) {
       elem.classList.add('smile');
-      elem.classList.add('light-1');
+      if (theme === 'dark') elem.classList.add('dark-1');
+      else elem.classList.add('light-1');
       elem.innerHTML = '🙂';
     }
     HEADER.appendChild(elem);
@@ -42,7 +50,8 @@ export default function generateBlocks(size, classSize) {
   // тело игры
   const BODY = document.createElement('div');
   BODY.classList.add('game__body');
-  BODY.classList.add('light-2');
+  if (theme === 'dark') BODY.classList.add('dark-2');
+  else BODY.classList.add('light-2');
   for (let i = 0; i < size; i += 1) {
     const elem = document.createElement('div');
     elem.classList.add('game__row');
@@ -50,7 +59,8 @@ export default function generateBlocks(size, classSize) {
       const block = document.createElement('div');
       block.classList.add('game__block');
       block.classList.add(classSize);
-      block.classList.add('light-1');
+      if (theme === 'dark') block.classList.add('dark-1');
+      else block.classList.add('light-1');
       elem.appendChild(block);
     }
     BODY.appendChild(elem);
@@ -60,7 +70,8 @@ export default function generateBlocks(size, classSize) {
   // футер игры
   const FOOTER = document.createElement('div');
   FOOTER.classList.add('game__footer');
-  FOOTER.classList.add('light-2');
+  if (theme === 'dark') FOOTER.classList.add('dark-2');
+  else FOOTER.classList.add('light-2');
   for (let i = 0; i < 3; i += 1) {
     const block = document.createElement('div');
     block.classList.add(footerClasses[i]);
@@ -71,7 +82,8 @@ export default function generateBlocks(size, classSize) {
     } else {
       block.classList.add('game__block');
       block.classList.add('flag');
-      block.classList.add('light-1');
+      if (theme === 'dark') block.classList.add('dark-1');
+      else block.classList.add('light-1');
       block.innerHTML = '⛏️';
     }
     FOOTER.appendChild(block);
@@ -91,20 +103,12 @@ export default function generateBlocks(size, classSize) {
   // значок настроек
   const SETTINGS__ICON = document.createElement('div');
   SETTINGS__ICON.classList.add('settings__icon');
-  SETTINGS__ICON.innerHTML = '⚙';
+  SETTINGS__ICON.innerHTML = 'settings';
   document.body.appendChild(SETTINGS__ICON);
 
   // значок настроек
   const SETTINGS__POPUP = document.createElement('div');
   SETTINGS__POPUP.classList.add('settings__popup');
-
-  // значок выхода
-  const SETTINGS__CLOSE = document.createElement('div');
-  SETTINGS__CLOSE.classList.add('settings__close');
-  const SETTINGS__TEXT = document.createElement('span');
-  SETTINGS__TEXT.innerHTML = 'back';
-  SETTINGS__TEXT.classList.add('text');
-  SETTINGS__CLOSE.appendChild(SETTINGS__TEXT);
 
   // настройка музыки
   const SETTINGS__MUSIC = document.createElement('div');
@@ -137,7 +141,7 @@ export default function generateBlocks(size, classSize) {
 
   const THEME = document.createElement('div');
   THEME.classList.add('settings__theme');
-  THEME.innerHTML = '<span class="theme dark">Dark</span> &nbsp / &nbsp <span class="theme light">Light</span>';
+  THEME.innerHTML = '<span class="theme dark">🔅</span>';
 
   const COUNT = document.createElement('div');
   COUNT.classList.add('settings__lvl');
@@ -147,7 +151,6 @@ export default function generateBlocks(size, classSize) {
   BOMBS.classList.add('settings__bombs');
   BOMBS.innerHTML = '<div calss="settings__text"> Bombs: </div> <input type="number" max="99" min="10" value="10" class="settings__input"/> <button class="settings__button">ok</button>';
 
-  SETTINGS__POPUP.appendChild(SETTINGS__CLOSE);
   SETTINGS__POPUP.appendChild(SETTINGS__MUSIC);
   SETTINGS__POPUP.appendChild(THEME);
   SETTINGS__POPUP.appendChild(COUNT);
@@ -156,7 +159,7 @@ export default function generateBlocks(size, classSize) {
   // значок лидера
   const LEADER__ICON = document.createElement('div');
   LEADER__ICON.classList.add('leader__icon');
-  LEADER__ICON.innerHTML = '🏆';
+  LEADER__ICON.innerHTML = 'score';
   document.body.appendChild(LEADER__ICON);
 
   const LEADER = document.createElement('div');
@@ -166,7 +169,6 @@ export default function generateBlocks(size, classSize) {
   TITLE.innerHTML = 'Last score:';
   LEADER.appendChild(TITLE);
   // из локал сторэдж
-  getLocalStorage();
   for (let i = 0; i < 10; i += 1) {
     const POS = document.createElement('div');
     POS.classList.add('position');

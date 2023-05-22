@@ -9,19 +9,19 @@ export function audioOff() {
 }
 
 export default function blockOnClick() {
-  clickAudio.src = '/files/click.mp3';
+  clickAudio.src = './files/click.mp3';
 }
 
 export function flagClick(set) {
-  clickAudio.src = set ? '/files/flag.mp3' : '/files/flag-off.mp3';
+  clickAudio.src = set ? './files/flag.mp3' : './files/flag-off.mp3';
 }
 
 export function bombClick() {
-  clickAudio.src = '/files/bomb.mp3';
+  clickAudio.src = './files/bomb.mp3';
 }
 
 export function gameOverSound(isWin) {
-  endAudio.src = isWin ? '/files/win.mp3' : '/files/game-over.mp3';
+  endAudio.src = isWin ? './files/win.mp3' : './files/game-over.mp3';
 }
 
 export function setAudio() {

@@ -17,19 +17,16 @@ body {
   padding: 0 15px;
 }
 .block .easy {
-  height: 530px;
+  height: 540px;
 }
 .block .medium {
-  height: 560px;
+  height: 570px;
 }
 .block .hard {
-  height: 750px;
+  height: 760px;
 }
 .block .game__wrapper {
   position: relative;
-  background-color: #b8b8b8;
-  border: 5px solid;
-  border-color: #c7c7c7 #9e9e9e #9e9e9e #c7c7c7;
 }
 .block .game__wrapper .game__header {
   display: flex;
@@ -37,8 +34,6 @@ body {
   align-items: center;
   margin: 5px;
   padding: 5px;
-  border: 5px solid;
-  border-color: #9e9e9e #c7c7c7 #c7c7c7 #9e9e9e;
 }
 .block .game__wrapper .game__header .game-status {
   cursor: pointer;
@@ -48,8 +43,6 @@ body {
   width: 25px;
   height: 25px;
   padding: 5px;
-  border: 5px solid;
-  border-color: #c7c7c7 #9e9e9e #9e9e9e #c7c7c7;
 }
 .block .game__wrapper .game__header .smile:active {
   transform: scale(0.9);
@@ -63,8 +56,6 @@ body {
   height: 66%;
   margin: 5px;
   padding: 1px;
-  border: 5px solid;
-  border-color: #9e9e9e #c7c7c7 #c7c7c7 #9e9e9e;
 }
 .block .game__wrapper .game__body .game__row {
   display: flex;
@@ -75,8 +66,6 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: 5px solid;
-  border-color: #c7c7c7 #9e9e9e #9e9e9e #c7c7c7;
 }
 .block .game__wrapper .game__body .game__row .num {
   cursor: auto;
@@ -141,8 +130,6 @@ body {
   justify-content: space-between;
   margin: 5px;
   padding: 5px;
-  border: 5px solid;
-  border-color: #9e9e9e #c7c7c7 #c7c7c7 #9e9e9e;
 }
 .block .game__wrapper .game__footer .game__block {
   cursor: pointer;
@@ -152,8 +139,6 @@ body {
   width: 25px;
   height: 25px;
   padding: 5px;
-  border: 5px solid;
-  border-color: #c7c7c7 #9e9e9e #9e9e9e #c7c7c7;
   transition: 0.1s;
 }
 .block .game__wrapper .game__footer .game__block:active {
@@ -180,21 +165,62 @@ body {
   display: flex;
 }
 
+.light-1 {
+  background-color: #b8b8b8;
+  border: 5px solid;
+  border-color: #c7c7c7 #9e9e9e #9e9e9e #c7c7c7;
+}
+
+.dark-1 {
+  background-color: #070707;
+  border: 5px solid;
+  border-color: #797979 #636363 #636363 #797979;
+}
+
+.light-2 {
+  border: 5px solid;
+  border-color: #9e9e9e #c7c7c7 #c7c7c7 #9e9e9e;
+}
+
+.dark-2 {
+  border: 5px solid;
+  border-color: #636363 #797979 #797979 #636363;
+}
+
+.dark-body {
+  background-color: #070707;
+}
+
+.numbers {
+  font-size: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  color: red;
+  background-color: black;
+  border: 2px solid;
+  border-color: #9e9e9e #c7c7c7 #c7c7c7 #9e9e9e;
+}
+
 .settings__icon {
   z-index: 2;
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   cursor: pointer;
-  font-size: 40px;
+  color: white;
+  font-size: 20px;
 }
 
 .settings__popup {
   z-index: 2;
   position: absolute;
-  bottom: 50px;
+  bottom: 30px;
   display: none;
   flex-direction: column;
-  row-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  row-gap: 40px;
   background-color: #b8b8b8;
   border: 5px solid;
   border-color: #c7c7c7 #9e9e9e #9e9e9e #c7c7c7;
@@ -263,6 +289,7 @@ body {
 .settings__popup .settings__theme .theme {
   cursor: pointer;
   transition: 0.2s;
+  font-size: 30px;
 }
 .settings__popup .settings__theme .theme:hover {
   transform: scale(0.9);
@@ -270,13 +297,6 @@ body {
 }
 .settings__popup .settings__theme .theme:active {
   transform: scale(1.1);
-  transition: 0.2s;
-}
-.settings__popup .settings__theme .dark {
-  color: black;
-}
-.settings__popup .settings__theme .light {
-  color: white;
   transition: 0.2s;
 }
 .settings__popup .settings__lvl {
@@ -289,9 +309,14 @@ body {
   display: inline-block;
   max-height: 20px;
   cursor: pointer;
+  transition: 0.2s;
 }
 .settings__popup .settings__lvl .lvl:hover {
   transform: scale(0.9);
+  transition: 0.2s;
+}
+.settings__popup .settings__lvl .lvl:active {
+  transform: scale(1.1);
   transition: 0.2s;
 }
 .settings__popup .settings__bombs {
@@ -302,6 +327,7 @@ body {
   font-size: 20px;
 }
 .settings__popup .settings__bombs .settings__input {
+  border-color: transparent;
   max-width: 30px;
 }
 .settings__popup .settings__bombs .settings__button {
@@ -313,10 +339,11 @@ body {
   z-index: 2;
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 10px;
   cursor: pointer;
-  font-size: 30px;
-  padding: 5px;
+  color: white;
+  font-size: 20px;
+  padding: 0 10px;
 }
 
 .leader__popup {
@@ -327,7 +354,7 @@ body {
   z-index: 2;
   position: absolute;
   right: 10px;
-  bottom: 50px;
+  bottom: 30px;
   row-gap: 10px;
   background-color: #b8b8b8;
   border: 5px solid;
@@ -347,18 +374,6 @@ body {
 
 .choose {
   color: white;
-}
-
-.numbers {
-  font-size: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  color: red;
-  background-color: black;
-  border: 2px solid;
-  border-color: #9e9e9e #c7c7c7 #c7c7c7 #9e9e9e;
 }
 
 @media (max-width: 535px) {

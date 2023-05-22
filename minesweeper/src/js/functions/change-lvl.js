@@ -23,6 +23,7 @@ export default function changeLvL() {
   const bodyW = document.querySelector('.game__wrapper');
   lvlBtn.forEach((button) => {
     button.addEventListener('click', (event) => {
+      if (document.body.classList.contains('dark-body')) document.body.classList.remove('dark-body');
       document.body.innerHTML = '';
       if (event.target.classList.contains('easy')) {
         generateBlocks(10, 'easy');
