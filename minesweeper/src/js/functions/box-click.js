@@ -12,11 +12,12 @@ import genMatrix from './generate-matrix.js';
 import blockOnClick, { flagClick } from './audio.js';
 import controlAudio from './sound.js';
 import openSettings from './settings.js';
-import changeLvL from './lvl-chage.js';
+import changeLvL from './change-lvl.js';
 import getSize from './get-size.js';
 import getBombsCount from './get-bombs.js';
 import changeBombCount from './change-count.js';
 import changeBomb from './change-bomb.js';
+import openLeaderBoard from './leader-board.js';
 
 export default function boxClick() {
   let flagStatus = false;
@@ -29,6 +30,7 @@ export default function boxClick() {
   newGame();
   controlAudio();
   openSettings();
+  openLeaderBoard();
   changeLvL();
   changeBomb();
   items.forEach((item) => {

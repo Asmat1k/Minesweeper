@@ -1,8 +1,6 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable import/extensions */
 
-import getSize from './get-size.js';
-
 /* eslint-disable no-param-reassign */
 let flagCount = 0;
 
@@ -11,7 +9,6 @@ export default function flagSet(reset) {
     flagCount = 0;
     return;
   }
-  const size = getSize() === 0 ? 10 : getSize() === 1 ? 15 : 25;
   const ITEMS = document.querySelectorAll('.game__block');
   const FLAGC = document.querySelector('.game-flags');
   let finalCount;
@@ -29,7 +26,7 @@ export default function flagSet(reset) {
             flagCount += 1;
             item.innerHTML = '🚩';
           }
-          if (flagCount < size) finalCount = `00${flagCount}`;
+          if (flagCount < 10) finalCount = `00${flagCount}`;
           else finalCount = `0${flagCount}`;
           FLAGC.innerHTML = finalCount;
         }

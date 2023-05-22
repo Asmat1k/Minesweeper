@@ -4,23 +4,41 @@ import getBombsCount from './get-bombs.js';
 import { gameReset } from './new-game.js';
 import setLocalStorage from './set-local.js';
 
-// let item;
+let item;
 
 // из локал сторэдж
-// function getLocalStorage() {
-//   if (localStorage.getItem('size')) {
-//     const item = localStorage.getItem('size');
-//   }
-// }
+function getLocalStorage() {
+  if (localStorage.getItem('size')) {
+    item = localStorage.getItem('size');
+  }
+}
 
-// function validateInput() {
-//   const input = document.querySelector('.settings__input');
-// }
+function validateInput() {
+  getLocalStorage();
+  const input = document.querySelector('.settings__input');
+  if (input.value >= 10 && input.value <= 100) {
+    if (item === 'easy') {
+      if (input.value > 38) {
+        input.value = 38;
+      }
+    }
+    if (item === 'medium') {
+      if (input.value > 86) {
+        input.value = 86;
+      }
+    }
+  } else {
+    input.value = 10;
+  }
+  return true;
+}
 
 export default function changeBomb() {
   const btn = document.querySelector('.settings__button');
-  btn.addEventListener('click', () => {
-    setLocalStorage('bombs', getBombsCount());
-    gameReset();
-  });
+  if (validateInput()) {
+    btn.addEventListener('click', () => {
+      setLocalStorage('bombs', getBombsCount());
+      gameReset();
+    });
+  }
 }

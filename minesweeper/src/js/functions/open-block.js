@@ -7,6 +7,7 @@ import inBorders from './in-borders.js';
 import bombsArround from './bombs-arround.js';
 import { matrix } from './generate-matrix.js';
 import { bombClick } from './audio.js';
+import getBombsCount from './get-bombs.js';
 
 // проверка на бомбу
 function isBomb(row, column) {
@@ -56,7 +57,7 @@ export default function openBlock(row, column) {
       nonBombBlocks += 1;
     }
   });
-  if (nonBombBlocks >= (size * size) - 11) {
+  if (nonBombBlocks >= (size * size) - (Number(getBombsCount()) + 1)) {
     gameOver(win, true);
   }
   // сколько бомб рядом

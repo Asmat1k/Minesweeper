@@ -1,7 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/extensions */
-
 /* eslint-disable no-trailing-spaces */
+let score = [];
+
+function getLocalStorage() {
+  if (localStorage.getItem('leader')) {
+    score = localStorage.getItem('leader').split(',');
+  }
+}
+
 export default function generateBlocks(size, classSize) {
   const headerClasses = ['game-click', 'game-status', 'game-score'];
   const footerClasses = ['game-mines', 'game-block', 'game-flags'];
@@ -115,6 +122,11 @@ export default function generateBlocks(size, classSize) {
   const INPUT = document.createElement('input');
   INPUT.classList.add('switch__input');
   INPUT.setAttribute('type', 'checkbox');
+  // если звук включен
+  if (localStorage.getItem('audio') === 'true') {
+    INPUT.classList.add('on');
+    INPUT.checked = true;
+  }
   SWITCH.appendChild(INPUT);
 
   const SPAN = document.createElement('span');
@@ -133,7 +145,7 @@ export default function generateBlocks(size, classSize) {
   
   const BOMBS = document.createElement('div');
   BOMBS.classList.add('settings__bombs');
-  BOMBS.innerHTML = '<div calss="settings__text"> Bombs: </div> <input type="number" value="10" class="settings__input"/> <button class="settings__button">ok</button>';
+  BOMBS.innerHTML = '<div calss="settings__text"> Bombs: </div> <input type="number" max="99" min="10" value="10" class="settings__input"/> <button class="settings__button">ok</button>';
 
   SETTINGS__POPUP.appendChild(SETTINGS__CLOSE);
   SETTINGS__POPUP.appendChild(SETTINGS__MUSIC);
@@ -141,6 +153,32 @@ export default function generateBlocks(size, classSize) {
   SETTINGS__POPUP.appendChild(COUNT);
   SETTINGS__POPUP.appendChild(BOMBS);
 
+  // значок лидера
+  const LEADER__ICON = document.createElement('div');
+  LEADER__ICON.classList.add('leader__icon');
+  LEADER__ICON.innerHTML = '🏆';
+  document.body.appendChild(LEADER__ICON);
+
+  const LEADER = document.createElement('div');
+  LEADER.classList.add('leader__popup');
+  const TITLE = document.createElement('div');
+  TITLE.classList.add('teader__title');
+  TITLE.innerHTML = 'Last score:';
+  LEADER.appendChild(TITLE);
+  // из локал сторэдж
+  getLocalStorage();
+  for (let i = 0; i < 10; i += 1) {
+    const POS = document.createElement('div');
+    POS.classList.add('position');
+    if (score[i]) {
+      POS.innerHTML = `${score[i]} clicks`;
+    } else {
+      POS.innerHTML = '...';
+    }
+    LEADER.appendChild(POS);
+  }
+
+  document.body.appendChild(LEADER);
   document.body.appendChild(SETTINGS__POPUP);
 
   document.body.appendChild(MAIN);

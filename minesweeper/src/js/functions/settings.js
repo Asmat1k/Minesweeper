@@ -18,10 +18,10 @@ export default function openSettings() {
   const close = document.querySelector('.text');
   getLocalStorage();
   icon.addEventListener('click', () => {
-    settingBlock.classList.add('settings__open');
+    settingBlock.classList.add('open');
     stopTimer();
     close.addEventListener('click', () => {
-      settingBlock.classList.remove('settings__open');
+      settingBlock.classList.remove('open');
       // если игра не была начата
       if (game.classList.contains('start')) {
         startTimer();
