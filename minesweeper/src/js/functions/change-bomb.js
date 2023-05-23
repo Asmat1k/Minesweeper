@@ -18,13 +18,8 @@ function validateInput() {
   const input = document.querySelector('.settings__input');
   if (input.value >= 10 && input.value <= 100) {
     if (item === 'easy') {
-      if (input.value > 38) {
-        input.value = 38;
-      }
-    }
-    if (item === 'medium') {
-      if (input.value > 86) {
-        input.value = 86;
+      if (input.value > 81) {
+        input.value = 81;
       }
     }
   } else {
