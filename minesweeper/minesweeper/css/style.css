@@ -378,7 +378,7 @@ body {
 
 @media (max-width: 535px) {
   .block .hard {
-    height: 670px;
+    height: 690px;
   }
   .block .game__wrapper .game__body .game__row .hard {
     width: 8px;

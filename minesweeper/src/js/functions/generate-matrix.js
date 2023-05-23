@@ -15,6 +15,7 @@ function setBobms(size, row, column, bombs) {
     const x = getRandomArbitrary(0, size);
     const y = getRandomArbitrary(0, size);
     if (matrix[x][y] === 0 && x !== row && y !== column) {
+      console.log(matrix);
       matrix[x][y] = 1;
       bombCurCount -= 1;
     }
