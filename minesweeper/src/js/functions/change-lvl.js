@@ -4,6 +4,7 @@
 /* eslint-disable import/extensions */
 import boxClick from './box-click.js';
 import click from './click.js';
+import flagSet from './flag-set.js';
 import generateBlocks from './generate-html.js';
 import setLocalStorage from './set-local.js';
 import { resetTimer } from './timer.js';
@@ -14,6 +15,7 @@ function gameReset() {
   setLocalStorage('audio', `${switchBtn.classList.contains('on') ? true : false}`);
   END.classList.remove('shown');
   click(true);
+  flagSet(true);
   resetTimer();
   boxClick();
 }
