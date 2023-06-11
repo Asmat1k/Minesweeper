@@ -1,4 +1,4 @@
-import { DataSources, Endpoint } from '../types';
+import { ErrCode, DataSources, Endpoint } from '../types';
 
 class Loader {
     baseLink: string;
@@ -19,7 +19,7 @@ class Loader {
 
     private errorHandler(res: Response): Response | never {
         if (!res.ok) {
-            if (res.status === 401 || res.status === 404)
+            if (res.status === ErrCode.One || res.status === ErrCode.Four)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
