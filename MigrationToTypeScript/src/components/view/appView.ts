@@ -1,4 +1,4 @@
-import { Article, Data, DataNews, DataSources } from '../types';
+import { Article, DataNews, DataSources } from '../types';
 import News from './news/news';
 import Sources from './sources/sources';
 
