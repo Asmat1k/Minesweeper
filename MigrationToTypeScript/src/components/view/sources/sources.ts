@@ -9,7 +9,7 @@ class Sources {
         data.forEach((item) => {
             if (sourceItemTemp) {
                 const sourceClone: DocumentFragment = sourceItemTemp.content.cloneNode(true) as DocumentFragment;
-                const sourceItemName = sourceClone.querySelector('.source__item-name');
+                const sourceItemName: Element = sourceClone.querySelector('.source__item-name') as Element;
 
                 if (sourceItemName) {
                     sourceItemName.textContent = item.name;
