@@ -16,7 +16,7 @@ export class AppView {
         this.news.draw(values);
     }
 
-    // TODO! valuse: type ?
+    //! TODO valuse: type ?
     public drawSources(data: DataSources): void {
         console.log(data);
         const values: Source[] | [] = data?.sources ? data?.sources : [];
