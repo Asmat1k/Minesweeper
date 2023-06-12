@@ -18,7 +18,8 @@ export class AppView {
 
     // TODO! valuse: type ?
     public drawSources(data: DataSources): void {
-        const values: Source = data?.sources ? data?.sources : [];
+        console.log(data);
+        const values: Source[] | [] = data?.sources ? data?.sources : [];
         if (values) this.sources.draw(values);
     }
 }

@@ -48,6 +48,7 @@
 }
 
 .source__item-name {
+    word-break: break-all;
     display: block;
     font-weight: 400;
     text-align: center;
