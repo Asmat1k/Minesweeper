@@ -2,7 +2,7 @@ import Loader from './loader';
 
 class AppLoader extends Loader {
     constructor() {
-        super('https://newsapi.org/v2/', {
+        super('https://rss-news-api.onrender.com/', {
             apiKey: '23d6d0cc7eea4335aaaaae4f27aeafcd',
         });
     }
