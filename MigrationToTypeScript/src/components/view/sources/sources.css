@@ -1,20 +1,22 @@
 .change-block {
-    max-width: 70%;
+    max-width: 50%;
 }
 
 .sources {
+    padding: 10px 0;
     display: grid;
-    grid-template-columns: 140px 140px 140px;
+    grid-template-columns: 25% 25% 25%;
     gap: 10px;
     overflow: auto;
-    max-height: 80vh;
+    max-height: 70vh;
     align-items: center;
+    justify-content: center;
     font: 300 1em 'Fira Sans', sans-serif;
 }
 
 .sources::-webkit-scrollbar {
     width: 0;
-  }
+}
 
 .source__item {
     display: flex;
@@ -35,9 +37,9 @@
 
 .source__item:hover,
 .source__item:focus {
-    border-color: #3fcc59;
-    color: #69db7e;
-    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+    border-color: #0000FF;
+    color: #0000FF;
+    box-shadow: 0 0.5em 0.5em -0.4em #0000FF;
     transform: translateY(-0.25em);
 }
 
@@ -50,4 +52,13 @@
     font-weight: 400;
     text-align: center;
     white-space: normal;
+}
+
+@media (max-width: 890px) {
+    .change-block {
+       max-width: 100%;
+    }
+    .sources {
+        max-height: 40vh;
+    }
 }

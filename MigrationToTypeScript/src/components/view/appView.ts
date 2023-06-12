@@ -1,4 +1,4 @@
-import { Article, DataNews, DataSources } from '../types';
+import { Source, Article, DataNews, DataSources } from '../types';
 import News from './news/news';
 import Sources from './sources/sources';
 
@@ -18,10 +18,8 @@ export class AppView {
 
     // TODO! valuse: type ?
     public drawSources(data: DataSources): void {
-        const values: Sources[] = data?.sources ? data?.sources : [];
-        if (values) {
-            this.sources.draw(values);
-        }
+        const values: Source = data?.sources ? data?.sources : [];
+        if (values) this.sources.draw(values);
     }
 }
 
