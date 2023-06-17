@@ -1,0 +1,105 @@
+.game-editor {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  position: relative;
+  text-align: left;
+
+  margin: 0 auto;
+  border: solid 10px #00000059;
+  border-radius: 4px;
+  font-family: monospace, "Inconsolata";
+
+  overflow: hidden;
+  width: 90%;
+  .editor-css {
+    .editor-area, .editor__text {
+      background-color: #efefef;
+      color: #AAA;
+    }
+  }
+  .editor-html {
+    border: solid 1px #ffffff08;
+    .editor-area {
+      background-color: #00000059;
+    }
+    .editor__text {
+      padding: 10px;
+      height: 100%;
+      background-color: #00000059;
+    }
+  }
+  .editor-info {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 10px 15px;
+    border: solid 1px #333;
+    .editor__title {
+      color: #ffffff99;
+    }
+  }
+  .editor-area {
+    display: grid;
+    grid-template-columns: 35px calc(100% - 35px);
+
+    font-size: 14px;
+    line-height: 160%;
+    .editor__input-line-numbers {
+      padding: 10px;
+      text-align: right;
+      color: #999;
+      background: #DDD;
+    }
+    .editor-type-area {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      padding: 15px 10px;
+    }
+    .editor__input {
+      margin-bottom: 3px;
+      font-family: "Inconsolata";
+      color: #333;
+      background: #efefef;
+    }
+    .editor-enter {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      
+      cursor: pointer;
+      user-select: none; 
+
+      
+      padding: 2px 5px;
+      border: solid 3px #999;
+      border-radius: 2px;
+      border-width: 1px 1px 6px 1px;
+      background: #ddd;
+      color: #666;
+      font-size: 9px;
+
+      max-height: 24px;
+
+      transition: .3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+  .editor-html {
+    .editor-area {
+      .editor__input-line-numbers {
+        color: #666;
+        background: #0000004d;
+        border: solid 1px #333;
+      }
+    }
+  }
+}

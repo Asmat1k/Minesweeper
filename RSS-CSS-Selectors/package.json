@@ -81,6 +81,7 @@
 		"webpack-stream": "latest"
 	},
 	"dependencies": {
+		"css.gg": "^2.0.0",
 		"simplebar": "latest"
 	}
 }
