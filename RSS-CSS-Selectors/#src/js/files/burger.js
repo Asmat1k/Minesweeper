@@ -1,27 +1,22 @@
-import { bodyLockStatus, bodyLockToggle, bodyLock, bodyUnlock } from './functions.js';
-
 // МЕНЮ-БУРГЕР
 export function menuInit() {
-  if (document.querySelector('.menu__icon')) {
+  if (document.querySelector('.nav-burger')) {
     document.addEventListener('click', (event) => {
-      if (bodyLockStatus && event.target.closest('.menu__icon')) {
-        bodyLockToggle();
+      if (event.target.closest('.nav-burger')) {
         document.documentElement.classList.toggle('menu-open');
-        document.querySelector('.menu__body').classList.toggle('menu-open');
+        document.querySelector('.nav__header_menu').classList.toggle('menu-open');
       }
     });
   }
 }
 
 export function menuOpen() {
-  bodyLock();
   document.documentElement.classList.add('menu-open');
-  document.querySelector('.menu__body').classList.add('menu-open');
+  document.querySelector('.nav__header_menu').classList.add('menu-open');
 }
 
 export function menuClose() {
-  bodyUnlock();
   document.documentElement.classList.remove('menu-open');
-  document.querySelector('.menu__body').classList.remove('menu-open');
+  document.querySelector('.nav__header_menu').classList.remove('menu-open');
 }
 //----------------------------------------------------------------------
