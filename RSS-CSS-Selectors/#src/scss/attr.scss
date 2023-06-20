@@ -20,6 +20,12 @@ plate {
     opacity: .4;
     background: rgba(255,255,255,1);
   }
+  .game-header .game__logo & {
+    opacity: .5;
+  }
+  &:hover {
+    box-shadow: 0 0 0 6px rgba(255,255,255,.4);
+  }
 }
 
 apple {
@@ -38,4 +44,42 @@ apple {
 plate apple {
   top: calc(50% - 55px);
   left: calc(50% - 40px);
+}
+
+.animated {
+  transform-origin: bottom;
+  animation: animatedStart .5s ease-out, animated 1s infinite;
+  animation-delay: 0s, .5s;
+}
+
+@keyframes animatedStart {
+  0% {
+    transform:  skew(0deg,0deg) scaleY(1) ;
+    animation-timing-function: ease-in;
+   }
+  40% {
+    transform:  skew(0deg,0deg) scaleY(.9);
+    animation-timing-function: ease-out;
+  }
+  100% { 
+    transform:   skew(4deg,0deg) scaleX(1); 
+  }
+}
+
+@keyframes animated {
+  0% { 
+    transform:   skew(4deg,0deg) scaleX(1); 
+  }
+  10% { 
+    transform:  skew(1deg,0deg) scaleY(.9) ; 
+  }
+  50% { 
+    transform:  skew(-4deg,0deg) scaleX(1); 
+  }
+  60% { 
+    transform:  skew(-1deg,0deg) scaleY(.9) ; 
+  }
+  100% {
+    transform: skew(4deg,0deg) scaleX(1); 
+  }
 }
