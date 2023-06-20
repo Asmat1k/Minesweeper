@@ -83,6 +83,7 @@
 
           height: 2px;
           width: 100%;
+          transition: .3s;
           &:first-child {
             top: 3px;
           }
@@ -90,8 +91,25 @@
             bottom: 3px;
           }
         }
+        .active {
+          background-color: rgb(129, 129, 129);
+          opacity: 1;
+          transition: .3s;
+          &:first-child {
+            top: 50%;
+            transform: rotate(135deg);
+          }
+          &:nth-of-type(2) {
+            top: 45%;
+            transform: rotate(45deg);
+          }
+          &:last-child {
+            bottom: 45%;
+            transform: rotate(45deg);
+          }
+        }
         &:hover .burger-line {
-          opacity: .4;
+          opacity: .5;
         }
       }
     }
