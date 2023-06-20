@@ -1,4 +1,6 @@
 @import "game-header";
+@import "game-node";
+@import "game-help";
 @import "game-body";
 @import "game-editor";
 @import "game-footer";
@@ -6,6 +8,8 @@
 .game {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 
   background-color: #2e2a23;
   height: 100vh;
