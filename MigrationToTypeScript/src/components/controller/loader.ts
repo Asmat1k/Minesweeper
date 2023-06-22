@@ -1,16 +1,17 @@
-import { ErrCode, DataSources, Endpoint } from '../types';
+import { ErrCode } from '../enums/error';
+import { DataSources, Endpoint, Rec } from '../types';
 
 class Loader {
-    baseLink: string;
-    options: Record<string, string>;
-    constructor(baseLink: string, options: Record<string, string>) {
+    private readonly baseLink: string;
+    public options: Rec;
+    constructor(baseLink: string, options: Readonly<Rec>) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     protected getResp(
-        { endpoint, options = {} }: { endpoint: Endpoint; options?: Record<string, string> },
-        callback = () => {
+        { endpoint, options = {} }: { endpoint: Endpoint; options?: Readonly<Rec> },
+        callback = (): void => {
             console.error('No callback for GET response');
         }
     ) {
@@ -26,8 +27,8 @@ class Loader {
         return res;
     }
 
-    private makeUrl(options: Record<string, string>, endpoint: Endpoint): string {
-        const urlOptions: Record<string, string> = { ...this.options, ...options };
+    private makeUrl(options: Rec, endpoint: Endpoint): string {
+        const urlOptions: Rec = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {

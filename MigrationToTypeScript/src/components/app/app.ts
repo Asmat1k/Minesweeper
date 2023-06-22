@@ -1,10 +1,11 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-import { Data, DataNews, DataSources } from '../types';
+import { Data, DataSources } from '../types';
+import { IDataNews } from '../models/IDataNews';
 
 class App {
-    public controller: AppController;
-    public view: AppView;
+    private readonly controller: AppController;
+    private readonly view: AppView;
 
     constructor() {
         this.controller = new AppController();
@@ -15,7 +16,7 @@ class App {
         const sources: Element | null = document.querySelector('.sources');
         if (sources) {
             sources.addEventListener('click', (e: Event) =>
-                this.controller.getNews(e, (data: Data) => this.view.drawNews(data as DataNews))
+                this.controller.getNews(e, (data: Data) => this.view.drawNews(data as IDataNews))
             );
         } else {
             throw new Error(".sources doesn't found");

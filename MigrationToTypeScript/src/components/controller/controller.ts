@@ -1,7 +1,8 @@
 import AppLoader from './appLoader';
 import { Data } from '../types';
+import { IAppController } from '../models/IAppController';
 
-class AppController extends AppLoader {
+class AppController extends AppLoader implements IAppController {
     public getSources(callback: (data?: Data) => void): void {
         super.getResp(
             {
@@ -14,7 +15,6 @@ class AppController extends AppLoader {
     public getNews(e: Event, callback: (data?: Data) => void): void | undefined {
         let target: Element = e.target as Element;
         const newsContainer: Element = e.currentTarget as Element;
-        console.log(callback);
         while (target && target !== newsContainer) {
             if (target.classList.contains('source__item')) {
                 const sourceId: string | null = target.getAttribute('data-source-id');

@@ -1,14 +1,7 @@
-export type Data = DataSources | DataNews | undefined;
-export type DataSources = { status: string; sources: Source[] } | undefined;
+import { IDataNews } from './models/IDataNews';
+import { ISource } from './models/ISource';
+
+export type Data = DataSources | IDataNews;
+export type DataSources = { status: string; sources: ISource[] } | undefined;
 export type Endpoint = 'sources' | 'everything';
-export type Source = Record<string, string>;
-export type Article = Record<string, string> & { source: Record<string, string> };
-export enum ErrCode {
-    One = 401,
-    Four = 404,
-}
-export type DataNews = {
-    status: string;
-    totalResults: number;
-    articles: Article[];
-};
+export type Rec = Record<string, string>;

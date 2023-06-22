@@ -1,9 +1,10 @@
 import './news.css';
-import { Article } from '../../types';
+import { INews } from '../../models/INews';
+import { IArticle } from '../../models/IArticle';
 
-class News {
-    public draw(data: Article[]): void {
-        const news: Article[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+class News implements INews {
+    public draw(data: IArticle[]): void {
+        const news: IArticle[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment: DocumentFragment = document.createDocumentFragment();
         const newsItemTemp: HTMLTemplateElement = document.querySelector('#newsItemTemp')!;
@@ -31,7 +32,10 @@ class News {
             fragment.append(newsClone);
         });
 
-        document.querySelector('.news')!.innerHTML = '';
+        const newsContainer = document.querySelector('.news') as HTMLDivElement;
+        if (newsContainer) {
+            newsContainer.innerHTML = '';
+        }
         document.querySelector('.news')!.appendChild(fragment);
     }
 }
