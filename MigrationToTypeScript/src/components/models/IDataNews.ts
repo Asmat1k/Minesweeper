@@ -1,7 +1,7 @@
 import { IArticle } from './IArticle';
 
 export interface IDataNews {
-    status: string;
-    totalResults: number;
-    articles: IArticle[];
+    readonly status: string;
+    readonly totalResults: number;
+    readonly articles: IArticle[];
 }

@@ -3,7 +3,7 @@ import { DataSources, Endpoint, Rec } from '../types';
 
 class Loader {
     private readonly baseLink: string;
-    public options: Rec;
+    private options: Rec;
     constructor(baseLink: string, options: Readonly<Rec>) {
         this.baseLink = baseLink;
         this.options = options;
@@ -14,13 +14,13 @@ class Loader {
         callback = (): void => {
             console.error('No callback for GET response');
         }
-    ) {
+    ): void {
         this.load('GET', endpoint, callback, options);
     }
 
     private errorHandler(res: Response): Response | never {
         if (!res.ok) {
-            if (res.status === ErrCode.One || res.status === ErrCode.Four)
+            if (res.status === ErrCode.unauthorized || res.status === ErrCode.notFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }

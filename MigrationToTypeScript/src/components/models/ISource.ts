@@ -1,9 +1,9 @@
 export interface ISource {
-    category: string;
-    country: string;
-    description: string;
-    id: string;
-    language: string;
-    name: string;
-    url: string;
+    readonly category: string;
+    readonly country: string;
+    readonly description: string;
+    readonly id: string;
+    readonly language: string;
+    readonly name: string;
+    readonly url: string;
 }

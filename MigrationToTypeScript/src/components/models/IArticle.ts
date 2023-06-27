@@ -1,13 +1,13 @@
 export interface IArticle {
-    author: string;
-    content: string;
-    description: string;
-    publishedAt: string;
-    source: {
-        id: string;
-        name: string;
+    readonly author: string;
+    readonly content: string;
+    readonly description: string;
+    readonly publishedAt: string;
+    readonly source: {
+        readonly id: string;
+        readonly name: string;
     };
-    title: string;
-    url: string;
-    urlToImage: string;
+    readonly title: string;
+    readonly url: string;
+    readonly urlToImage: string;
 }
