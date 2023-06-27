@@ -1,30 +1,31 @@
 // МЕНЮ-БУРГЕР
-export function menuInit() {
+export function menuInit(): void {
   if (document.querySelector('.nav-burger')) {
     document.addEventListener('click', (event) => {
-      if (event.target.closest('.nav-burger')) {
+      const target = event.target as HTMLElement;
+      if (target.closest('.nav-burger')) {
         lineChange();
         document.documentElement.classList.toggle('menu-open');
-        document.querySelector('.nav__header_menu').classList.toggle('menu-open');
+        document.querySelector('.nav__header_menu')!.classList.toggle('menu-open');
       }
     });
   }
 }
 
-function lineChange() {
+function lineChange(): void {
   const lines = document.querySelectorAll('.burger-line');
   for(let i = 0; i < lines.length; i += 1) {
     lines[i].classList.toggle('active');
   }
 }
 
-export function menuOpen() {
+export function menuOpen(): void {
   document.documentElement.classList.add('menu-open');
-  document.querySelector('.nav__header_menu').classList.add('menu-open');
+  document.querySelector('.nav__header_menu')!.classList.add('menu-open');
 }
 
-export function menuClose() {
+export function menuClose(): void {
   document.documentElement.classList.remove('menu-open');
-  document.querySelector('.nav__header_menu').classList.remove('menu-open');
+  document.querySelector('.nav__header_menu')!.classList.remove('menu-open');
 }
 //----------------------------------------------------------------------
