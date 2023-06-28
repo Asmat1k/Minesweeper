@@ -25,6 +25,7 @@ export function menuOpen(): void {
 }
 
 export function menuClose(): void {
+  lineChange();
   document.documentElement.classList.remove('menu-open');
   document.querySelector('.nav__header_menu')!.classList.remove('menu-open');
 }

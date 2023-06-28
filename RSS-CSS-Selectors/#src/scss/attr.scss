@@ -83,3 +83,9 @@ plate apple {
     transform: skew(4deg,0deg) scaleX(1); 
   }
 }
+
+// Выбранный элемент
+.vanish {
+  opacity: 0;
+  transition: .5s;
+}
