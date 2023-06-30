@@ -28,6 +28,10 @@
         top: -3px;
         transform: rotate(40deg);
       }
+      .nav-done {
+        border-color: green;
+        opacity: 1;
+      }
     }
     .nav__buttons {
       display: flex;

@@ -1,4 +1,4 @@
-plate {
+.table plate, .game__logo plate {
   position: relative;
   display: inline-block;
   background-color: white;
@@ -28,7 +28,25 @@ plate {
   }
 }
 
-apple {
+.table .plate-hover {
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.html-text .plate-hover {
+  color: gray;
+}
+
+.html-text plate  {
+  cursor: pointer;
+  &:hover {
+    color:gray;
+  }
+}
+
+
+
+.table apple, .game__logo apple {
+  z-index: 2;
   position: absolute;
   background: #e41919;
   border-color: #ab1212;
@@ -38,7 +56,10 @@ apple {
   border-width: 2px 4px 15px 4px;
   height: 60px;
   width: 60px;
-  margin: 20px 10px
+  margin: 20px 10px;
+  &:hover {
+    box-shadow: 0 0 0 6px rgba(0,0,0,.2);
+  }
 }
 
 plate apple {
