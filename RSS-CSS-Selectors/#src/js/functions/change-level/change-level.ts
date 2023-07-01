@@ -17,8 +17,11 @@ window.addEventListener('load', getLocalStorageforCur);
 
 // Отметка о прохождении
 export function markLevel(num: number): void {
+  // Анимация галочки прохождения
   const marks: NodeListOf<HTMLElement> = document.querySelectorAll('.lvl-check')!;
-  marks[num].classList.add('nav-done');
+  const curMark: HTMLElement = document.querySelector('.nav-check')!;
+  curMark.classList.add('done');
+  marks[num].classList.add('done');
   LEVELS[num].status = true;
 }
 

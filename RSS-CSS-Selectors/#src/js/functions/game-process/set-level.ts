@@ -18,9 +18,9 @@ export function setCurTask(level: Level): void {
   number.innerHTML = (getLocalStorage() + 1).toString();
   title.innerHTML = level.helpText.title;
   if (level.status) {
-    check.classList.add('nav-done');
-  } else if(check.classList.contains('nav-done')) {
-    check.classList.remove('nav-done');
+    check.classList.add('done');
+  } else if(check.classList.contains('done')) {
+    check.classList.remove('done');
   }
   subtitle.innerHTML = level.helpText.subtitle;
   id.innerHTML = level.helpText.id;

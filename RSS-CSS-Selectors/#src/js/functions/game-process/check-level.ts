@@ -1,5 +1,4 @@
 import { LEVELS } from "../level-storage/arr-level";
-import { Level } from "../../files/types/types";
 import { currentLevel, markLevel, nextLevel } from "../change-level/change-level";
 
 // Проверка результатов
@@ -33,7 +32,9 @@ function buttonCheck(input: HTMLInputElement): void {
 function inputValidate(input: HTMLInputElement, area: HTMLElement) {
   if (input.value === LEVELS[currentLevel - 1].answer) {
     markLevel(currentLevel - 1);
-    nextLevel();
+    // время на анимацию
+    //! TODO Сделать, чтобы галочка была желтой если подсказка была использована
+    setTimeout(() => nextLevel(), 2000) 
     console.log('Button win!');
   } else {
     area.classList.add('shake');
