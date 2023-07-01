@@ -1,5 +1,5 @@
 import { LEVELS } from "../level-storage/arr-level";
-import { initGame } from "../init-game";
+import { initGame } from "../../init-game";
 import { menuClose } from "../menu/burger";
 import { setLocalStorage } from "../../files/functions";
 

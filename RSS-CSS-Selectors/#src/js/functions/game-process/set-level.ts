@@ -1,6 +1,6 @@
 import { Level } from "../../files/types/types";
 import { changeProgressBar, updateList } from "../change-level/change-level";
-import { getLocalStorage } from "../init-game";
+import { getLocalStorage } from "../../init-game";
 
 // Смена информации о таске
 export function setCurTask(level: Level): void {
