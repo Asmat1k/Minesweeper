@@ -3,46 +3,43 @@ import { Level } from "../../files/types/types";
 import { currentLevel, markLevel, nextLevel } from "../change-level/change-level";
 
 // Проверка результатов
-export function checkCurRes(level: Level): void {
+export function checkCurRes(): void {
   const attempt: HTMLInputElement = document.querySelector('.editor__input')!;
   inputAnimate(attempt);
-  keyboardCheck(level, attempt);
-  buttonCheck(level, attempt);
+  keyboardCheck(attempt);
+  buttonCheck(attempt);
 }
 
 // Проверка на нажатие на клавишу
-function keyboardCheck(level: Level, input: HTMLInputElement) {
+function keyboardCheck(input: HTMLInputElement) {
   const editorArea: HTMLElement = document.querySelector('.game-editor')!;
   document.addEventListener( 'keydown', (event: KeyboardEvent) => {
     if (event.code === 'Enter') {
-      inputValidate(level, input, editorArea);
+      inputValidate(input, editorArea);
     }
   });
 }
 
 // Проверка на нажатие на экране
-function buttonCheck(level: Level, input: HTMLInputElement): void {
+function buttonCheck(input: HTMLInputElement): void {
   const editorArea: HTMLElement = document.querySelector('.game-editor')!;
   const button: HTMLElement = document.querySelector('.editor-enter')!;
   button.addEventListener('click', () => {
-    inputValidate(level, input, editorArea);
+    inputValidate(input, editorArea);
   });
 }
 
 // Проверка инпут поля
-function inputValidate(level: Level, input: HTMLInputElement, area: HTMLElement) {
-  //! TODO Пофиксить багу с зацыкливанием вызово
-  if(currentLevel - 1 === LEVELS.indexOf(level)) {
-    if (input.value === level.answer) {
-      markLevel(currentLevel - 1);
-      nextLevel();
-      console.log('Button win!');
-    } else {
-      area.classList.add('shake');
-      setTimeout(function() {
-        area.classList.remove('shake')
-      }, 500);
-    }
+function inputValidate(input: HTMLInputElement, area: HTMLElement) {
+  if (input.value === LEVELS[currentLevel - 1].answer) {
+    markLevel(currentLevel - 1);
+    nextLevel();
+    console.log('Button win!');
+  } else {
+    area.classList.add('shake');
+    setTimeout(function() {
+      area.classList.remove('shake')
+    }, 500);
   }
 }
 

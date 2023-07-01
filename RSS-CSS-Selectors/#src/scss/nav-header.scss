@@ -30,7 +30,6 @@
       }
       .nav-done {
         border-color: green;
-        opacity: 1;
       }
     }
     .nav__buttons {
@@ -140,3 +139,16 @@
     }
   }
 } 
+
+.done {
+  animation: done 1.5s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes done {
+  0%  { opacity: .4; border-color: green; }
+  25% { opacity: .6; border-color: green; transform: rotate(40deg) scale(0.9); }
+  50% { opacity: .8; border-color: green; transform: rotate(40deg) scale(1.1); }
+  75% { opacity: 1;  border-color: green; transform: rotate(40deg) scale(1.0); }
+  100% { opacity: 1; border-color: green; }
+}

@@ -11,7 +11,6 @@ export function initGame(): void {
   setCurTable(LEVELS[id]);
   setCurHtml(LEVELS[id]);
   setCurTask(LEVELS[id]);
-  checkCurRes(LEVELS[id]);
   colorBlock();
   // changeStyle();
 }
