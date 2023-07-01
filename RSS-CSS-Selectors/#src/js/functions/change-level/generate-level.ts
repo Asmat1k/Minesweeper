@@ -1,4 +1,4 @@
-import { LEVELS } from "../../files/Levels/arr-lvl";
+import { LEVELS } from "../level-storage/arr-level";
 
 // Заполнение списка уровней
 export function generateLvlList(): void {

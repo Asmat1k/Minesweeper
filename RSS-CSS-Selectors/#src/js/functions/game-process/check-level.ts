@@ -1,6 +1,6 @@
-import { LEVELS } from "../../files/Levels/arr-lvl";
+import { LEVELS } from "../level-storage/arr-level";
 import { Level } from "../../files/types/types";
-import { currentLevel, markLevel, nextLevel } from "../change/change-lvl";
+import { currentLevel, markLevel, nextLevel } from "../change-level/change-level";
 
 // Проверка результатов
 export function checkCurRes(level: Level): void {

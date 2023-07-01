@@ -1,5 +1,5 @@
-import { dishes } from "../types/dishes";
-import { Level } from "../types/types";
+import { dishes } from "../../files/types/dishes";
+import { Level } from "../../files/types/types";
 
 // массив уровней
 export const LEVELS: Level[] = [

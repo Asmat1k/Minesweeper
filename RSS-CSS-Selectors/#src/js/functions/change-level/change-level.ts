@@ -1,5 +1,5 @@
-import { LEVELS } from "../../files/Levels/arr-lvl";
-import { initGame } from "../../files/play";
+import { LEVELS } from "../level-storage/arr-level";
+import { initGame } from "../init-game";
 import { menuClose } from "../menu/burger";
 
 export let currentLevel: number = 1;
