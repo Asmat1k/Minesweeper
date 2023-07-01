@@ -1,10 +1,22 @@
 import { LEVELS } from "../level-storage/arr-level";
 import { initGame } from "../init-game";
 import { menuClose } from "../menu/burger";
+import { setLocalStorage } from "../../files/functions";
 
-export let currentLevel: number = 1;
+export let currentLevel: number = getLocalStorageforCur();
 
-export function markLevel(num: number) {
+// Из локалсторэдж
+function getLocalStorageforCur(): number {
+  let cur: string;
+  if(localStorage.getItem('level')) {
+    cur = localStorage.getItem('level')!;
+  }
+  return cur! ? +cur: 1;
+}
+window.addEventListener('load', getLocalStorageforCur);
+
+// Отметка о прохождении
+export function markLevel(num: number): void {
   const marks: NodeListOf<HTMLElement> = document.querySelectorAll('.lvl-check')!;
   marks[num].classList.add('nav-done');
   LEVELS[num].status = true;
@@ -29,7 +41,6 @@ export function changeLevel(): void {
 
 // Смена уровней по стрелкам
 function changeOnArrow(): void {
-  const items = document.querySelectorAll('.header-nav__item')!;
   const right: HTMLElement  = document.querySelector('.arrow-right')!;
   const left: HTMLElement  = document.querySelector('.arrow-left')!;
   // на право
@@ -38,8 +49,7 @@ function changeOnArrow(): void {
     if (currentLevel < LEVELS.length) {
       currentLevel += 1;
     }
-    deactivateItem();
-    items[currentLevel - 1].classList.add('current');
+    updateList();
     changeInfo();
   })
   // на лево
@@ -48,10 +58,15 @@ function changeOnArrow(): void {
     if (currentLevel > 1) {
       currentLevel -= 1;
     }
-    deactivateItem();
-    items[currentLevel - 1].classList.add('current');
+    updateList();
     changeInfo();
   })
+}
+
+export function updateList(): void {
+  const items = document.querySelectorAll('.header-nav__item')!;
+  deactivateItem();
+  items[currentLevel - 1].classList.add('current');
 }
 
 // Cмена уровней по клику в списке
@@ -70,7 +85,7 @@ function changeOnList(): void {
 }
 
 // Снятие активного уровня
-function deactivateItem() {
+function deactivateItem(): void {
   const items = document.querySelectorAll('.header-nav__item')!;
   items.forEach((item) => {
     if (item.classList.contains('current')) item.classList.remove('current');
@@ -82,11 +97,14 @@ function changeInfo(): void {
   const current: HTMLElement = document.querySelector('.nav-cur-lvl')!;
   current.innerHTML = `${currentLevel}`;
   changeProgressBar();
-  initGame(LEVELS[currentLevel - 1]);
+
+  setLocalStorage('level', currentLevel.toString());
+
+  initGame();
 }
 
 // смена позиции прогресс бара
-function changeProgressBar(): void {
+export function changeProgressBar(): void {
   const progressPoint: HTMLElement = document.querySelector('.nav-progress-bar')!;
   progressPoint.style.width = `${currentLevel * 10}%`;
 }

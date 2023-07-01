@@ -83,4 +83,9 @@ export const shuffleArray = <T>(array: T[]): T[] => {
 };
 //----------------------------------------------------------------------
 
+
+// в лока сторэдж
+export function setLocalStorage(name: string, value: string): void {
+  localStorage.setItem(name, value)
+}
 //----------------------------------------------------------------------

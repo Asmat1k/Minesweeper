@@ -109,7 +109,11 @@
         .html-text {
           .table-code {
             plate {
+              display: block;
               padding-left: 10px;
+              apple {
+                padding-left: 20px;
+              }
             }
           }
         }

@@ -1,5 +1,6 @@
 .table plate, .game__logo plate {
   position: relative;
+  z-index: 1;
   display: inline-block;
   background-color: white;
   width: 100px;
@@ -46,8 +47,8 @@
 
 
 .table apple, .game__logo apple {
-  z-index: 2;
   position: absolute;
+  z-index: 3;
   background: #e41919;
   border-color: #ab1212;
   box-shadow: 0px 5px 0px rgba(0,0,0,.2);

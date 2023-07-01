@@ -9,11 +9,8 @@ export const LEVELS: Level[] = [
     status: false,
     htmlCode:  
     `&ltdiv class="table"&gt
-     <br>
       <plate>&ltplate/&gt</plate>
-      <br>
       <plate>&ltplate/&gt</plate>
-      <br>
     &lt/div&gt
     `,
     tableComponents: `${dishes.plate}${dishes.plate}`,
@@ -34,10 +31,15 @@ export const LEVELS: Level[] = [
     htmlCode:  
     `&ltdiv class="table"&gt
      <br>
-      <plate>&ltplate/&gt</plate>
-     <br>
+      <plate>
+      &ltplate&gt
+      <br>
+        <apple>&ltapple/&gt</apple>
+      <br>
+      &ltplate/&gt
+      </plate>
     &lt/div&gt`,
-    tableComponents: `${dishes.plate}`,
+    tableComponents: `${dishes.plateApple}`,
     helpTitle: 'Type Selector',
     helpText: {
       title: 'Type Selector 2',

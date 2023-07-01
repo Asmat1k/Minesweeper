@@ -12,5 +12,5 @@ myFunctions.isWebp();
 menuFunctions.menuInit();
 
 generateLvlList();
-initGame(LEVELS[0]);
+initGame();
 changeLevel();
