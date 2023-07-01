@@ -10,7 +10,7 @@ export function setCurTask(level: Level): void {
   const check: HTMLElement = document.querySelector('.nav-check')!;
   const mainTitle: HTMLElement = document.querySelector('.game__title-main')!;
   const subtitle: HTMLElement = taskArea.querySelector('.nav__subtitle')!;
-  const id: HTMLElement = taskArea.querySelector('.nav__id')!;
+  const id: HTMLElement = taskArea.querySelector('.id')!;
   const task: HTMLElement = taskArea.querySelector('.nav-task-text')!;
   const example: HTMLElement = taskArea.querySelector('.nav-task-example')!;
 

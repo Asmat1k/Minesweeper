@@ -7,10 +7,14 @@
   .game__button {
     display: inline-block;
 
+    pointer-events: auto;
     text-decoration: none;
     color: rgba(255,255,255,.3);
     background: rgba(0,0,0,.2);
     padding: 8px 15px 10px 15px;
     border-radius: 20px;
+  }
+  .game__button_close {
+    pointer-events: none;
   }
 }

@@ -20,16 +20,19 @@
     }
   }
   .nav__id {
-    color: #888;
-    font-size: 24px;
-    font-weight: 200;
-    opacity: .8;
-    padding: 5px 8px;
-    background: rgba(255,255,255,.05);
-    border-bottom: solid 2px rgba(255,255,255,.1);
     margin-bottom: 3px;
+    .id {
+      display: inline-block;
 
-    max-width: 31px;
+      color: #888;
+      font-size: 24px;
+      font-weight: 200;
+      opacity: .8;
+      padding: 5px 8px;
+
+      background: rgba(255,255,255,.05);
+      border-bottom: solid 2px rgba(255,255,255,.1);
+    }
   }
   .nav-task-text {
     color: #888;

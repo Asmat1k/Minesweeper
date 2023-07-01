@@ -5,7 +5,7 @@ import { Level } from "../../files/types/types";
 export const LEVELS: Level[] = [
   {
     toDo: 'Select the plates',
-    answer: 'popa tyt vashe',
+    answer: 'testing cool typing',
     status: false,
     htmlCode:  
 `&ltdiv class="table"&gt
@@ -26,7 +26,7 @@ export const LEVELS: Level[] = [
   },
   {
     toDo: 'Select the bento boxes',
-    answer: '2',
+    answer: 'answer - 2',
     status: false,
     htmlCode:  
 `&ltdiv class="table"&gt
@@ -47,7 +47,7 @@ export const LEVELS: Level[] = [
   },
   {
     toDo: '3',
-    answer: '3',
+    answer: 'idk',
     status: false,
     htmlCode:  
 `&ltdiv class="table"&gt
@@ -66,7 +66,7 @@ export const LEVELS: Level[] = [
   },
   {
     toDo: '4',
-    answer: '4',
+    answer: 'ho-ho-ho',
     status: false,
     htmlCode:  
 `&ltdiv class="table"&gt
@@ -104,7 +104,7 @@ export const LEVELS: Level[] = [
   },
   {
     toDo: '6',
-    answer: '6',
+    answer: 'net voobrazhenia',
     status: false,
     htmlCode:  
 `&ltdiv class="table"&gt
