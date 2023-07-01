@@ -83,6 +83,7 @@
 	},
 	"dependencies": {
 		"css.gg": "^2.0.0",
+		"highlight.js": "^11.8.0",
 		"simplebar": "latest"
 	}
 }

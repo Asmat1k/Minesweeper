@@ -107,13 +107,15 @@
       }
       .editor-html {
         .html-text {
+          pre {
+            display: block;
+          }
           .table-code {
-            plate {
-              display: block;
-              padding-left: 10px;
-              apple {
-                padding-left: 20px;
-              }
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            .hljs-tag {
+              cursor: pointer;
             }
           }
         }

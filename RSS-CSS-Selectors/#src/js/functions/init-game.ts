@@ -5,6 +5,7 @@ import { initHelp } from "./help-block/initHelp";
 import { Level } from "../files/types/types";
 import { currentLevel } from "./change-level/change-level";
 import { LEVELS } from "./level-storage/arr-level";
+import { colorBlock } from "./game-process/color";
 
 // Инициализация игры
 export function initGame(): void {
@@ -14,7 +15,8 @@ export function initGame(): void {
   setCurHtml(LEVELS[id]);
   setCurTask(LEVELS[id]);
   checkCurRes(LEVELS[id]);
-  changeStyle();
+  colorBlock();
+  // changeStyle();
 }
 
 // Из локал сторедж

@@ -8,10 +8,10 @@ export const LEVELS: Level[] = [
     answer: 'popa tyt vashe',
     status: false,
     htmlCode:  
-    `&ltdiv class="table"&gt
-      <plate>&ltplate/&gt</plate>
-      <plate>&ltplate/&gt</plate>
-    &lt/div&gt
+`&ltdiv class="table"&gt
+  &ltplate/&gt
+  &ltplate/&gt
+&lt/div&gt
     `,
     tableComponents: `${dishes.plate}${dishes.plate}`,
     helpTitle: 'Type Selector',
@@ -29,16 +29,11 @@ export const LEVELS: Level[] = [
     answer: '2',
     status: false,
     htmlCode:  
-    `&ltdiv class="table"&gt
-     <br>
-      <plate>
-      &ltplate&gt
-      <br>
-        <apple>&ltapple/&gt</apple>
-      <br>
-      &ltplate/&gt
-      </plate>
-    &lt/div&gt`,
+`&ltdiv class="table"&gt
+  &ltplate&gt
+    &ltapple/&gt
+  &ltplate/&gt
+&lt/div&gt`,
     tableComponents: `${dishes.plateApple}`,
     helpTitle: 'Type Selector',
     helpText: {
@@ -55,11 +50,9 @@ export const LEVELS: Level[] = [
     answer: '3',
     status: false,
     htmlCode:  
-    `&ltdiv class="table"&gt
-     <br>
-      <plate>&ltplate/&gt</plate>
-     <br>
-    &lt/div&gt`,
+`&ltdiv class="table"&gt
+  &ltplate&gt
+&lt/div&gt`,
     tableComponents: `${dishes.plate}`,
     helpTitle: 'Type Selector',
     helpText: {
@@ -76,11 +69,9 @@ export const LEVELS: Level[] = [
     answer: '4',
     status: false,
     htmlCode:  
-    `&ltdiv class="table"&gt
-     <br>
-      <plate>&ltplate/&gt</plate>
-     <br>
-    &lt/div&gt`,
+`&ltdiv class="table"&gt
+  &ltplate&gt
+&lt/div&gt`,
     tableComponents: `${dishes.plate}`,
     helpTitle: 'Type Selector',
     helpText: {
@@ -97,11 +88,9 @@ export const LEVELS: Level[] = [
     answer: '5',
     status: false,
     htmlCode:  
-    `&ltdiv class="table"&gt
-     <br>
-      <plate>&ltplate/&gt</plate>
-     <br>
-    &lt/div&gt`,
+`&ltdiv class="table"&gt
+  &ltplate&gt
+&lt/div&gt`,
     tableComponents: `${dishes.plate}`,
     helpTitle: 'Type Selector',
     helpText: {
@@ -118,11 +107,9 @@ export const LEVELS: Level[] = [
     answer: '6',
     status: false,
     htmlCode:  
-    `&ltdiv class="table"&gt
-     <br>
-      <plate>&ltplate/&gt</plate>
-     <br>
-    &lt/div&gt`,
+`&ltdiv class="table"&gt
+  &ltplate&gt
+&lt/div&gt`,
     tableComponents: `${dishes.plate}`,
     helpTitle: 'Type Selector',
     helpText: {
@@ -139,11 +126,9 @@ export const LEVELS: Level[] = [
     answer: '7',
     status: false,
     htmlCode:  
-    `&ltdiv class="table"&gt
-     <br>
-      <plate>&ltplate/&gt</plate>
-     <br>
-    &lt/div&gt`,
+`&ltdiv class="table"&gt
+  &ltplate&gt
+&lt/div&gt`,
     tableComponents: `${dishes.plate}`,
     helpTitle: 'Type Selector',
     helpText: {
@@ -160,11 +145,9 @@ export const LEVELS: Level[] = [
     answer: '8',
     status: false,
     htmlCode:  
-    `&ltdiv class="table"&gt
-     <br>
-      <plate>&ltplate/&gt</plate>
-     <br>
-    &lt/div&gt`,
+`&ltdiv class="table"&gt
+  &ltplate&gt
+&lt/div&gt`,
     tableComponents: `${dishes.plate}`,
     helpTitle: 'Type Selector',
     helpText: {
@@ -181,11 +164,9 @@ export const LEVELS: Level[] = [
     answer: '9',
     status: false,
     htmlCode:  
-    `&ltdiv class="table"&gt
-     <br>
-      <plate>&ltplate/&gt</plate>
-     <br>
-    &lt/div&gt`,
+`&ltdiv class="table"&gt
+  &ltplate&gt
+&lt/div&gt`,
     tableComponents: `${dishes.plate}`,
     helpTitle: 'Type Selector',
     helpText: {
@@ -202,11 +183,9 @@ export const LEVELS: Level[] = [
     answer: '10',
     status: false,
     htmlCode:  
-    `&ltdiv class="table"&gt
-     <br>
-      <plate>&ltplate/&gt</plate>
-     <br>
-    &lt/div&gt`,
+`&ltdiv class="table"&gt
+  &ltplate&gt
+&lt/div&gt`,
     tableComponents: `${dishes.plate}`,
     helpTitle: 'Type Selector',
     helpText: {

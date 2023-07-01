@@ -1,7 +1,7 @@
 //! TODO Добавить код рядом с элементом на который наводишься
 
 export function changeStyle(): void {
-  const editor: HTMLElement = document.querySelector('.html-text')!;
+  const editor: HTMLElement = document.querySelector('.table-code')!;
   const table: HTMLElement = document.querySelector('.table')!;
   const platesEd: NodeListOf<Element> = editor.querySelectorAll('plate')!;
   const platesRe: NodeListOf<Element> = table.querySelectorAll('plate')!;
@@ -17,7 +17,7 @@ export function changeStyle(): void {
 
 // Смена стиля у КОДА при наведении на ТАРЕЛКУ
 function changeCodeItem(plate: Element, index: number): void {
-  const editor: HTMLElement = document.querySelector('.html-text')!;
+  const editor: HTMLElement = document.querySelector('.table-code')!;
   const platesEd: NodeListOf<Element> = editor.querySelectorAll('plate')!;
   plate.addEventListener('mouseover', () => {
     platesEd[index].classList.add('plate-hover');
@@ -25,7 +25,7 @@ function changeCodeItem(plate: Element, index: number): void {
 }
 
 function rechangeCodeItem(plate: Element, index: number): void {
-  const editor: HTMLElement = document.querySelector('.html-text')!;
+  const editor: HTMLElement = document.querySelector('.table-code')!;
   const platesEd: NodeListOf<Element> = editor.querySelectorAll('plate')!;
   plate.addEventListener('mouseout', () => {
     platesEd[index].classList.remove('plate-hover');
@@ -38,6 +38,7 @@ function changeRealItem(plate: Element, index: number): void {
   const table: HTMLElement = document.querySelector('.table')!;
   const realPlates: NodeListOf<HTMLElement> = table.querySelectorAll('plate')!;
   plate.addEventListener('mouseover', () => {
+    console.log('on');
     realPlates[index].classList.add('plate-hover');
   })
 }
@@ -46,6 +47,7 @@ function rechangeRealItem(plate: Element, index: number): void {
   const table: HTMLElement = document.querySelector('.table')!;
   const realPlates: NodeListOf<HTMLElement> = table.querySelectorAll('plate')!;
   plate.addEventListener('mouseout', () => {
+    console.log('off');
     realPlates[index].classList.remove('plate-hover');
   })
 }
