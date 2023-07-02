@@ -73,6 +73,25 @@
       font-family: "Inconsolata";
       color: #333;
       background: #efefef;
+
+      color: transparent;
+      background-color: transparent;
+      border-color: transparent;
+    }
+    pre {
+      display: block;
+      .editor-layer {
+        position: absolute;
+        top: 10px;
+        display: block;
+  
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+  
+        height: 20px;
+      }
     }
     .blink {
       background: rgba(62,203,255,.3);

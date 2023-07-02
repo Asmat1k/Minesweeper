@@ -1,10 +1,12 @@
 import { currentLevel } from "../change-level/change-level"
+import { colorBlock } from "../game-process/color";
 import { LEVELS } from "../level-storage/arr-level"
 
 
 // Печать ответа
 export function knowAnswer(): void {
   const input: HTMLInputElement = document.querySelector('.editor__input')!;
+  const layer: HTMLInputElement = document.querySelector('.editor-layer')!;
   const button: HTMLElement = document.querySelector('.answer')!;
   
   button.addEventListener(('click'), (): void => {
@@ -19,9 +21,12 @@ export function knowAnswer(): void {
     let interval: ReturnType<typeof setInterval>;
 
     input.value = '';
+    layer.innerHTML = '';
 
     interval = setInterval(() => {
-      input.value += text[count++];
+      input.value += text[count];
+      layer.innerHTML += text[count++];
+      colorBlock('.editor-layer');
       if (count === answer.length) {
         button.classList.remove('game__button_close');
         clearInterval(interval);

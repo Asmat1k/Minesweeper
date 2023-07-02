@@ -11,7 +11,7 @@ export function initGame(): void {
   setCurTable(LEVELS[id]);
   setCurHtml(LEVELS[id]);
   setCurTask(LEVELS[id]);
-  colorBlock();
+  colorBlock('.html');
   // changeStyle();
 }
 
