@@ -13,6 +13,7 @@ export function setCurTask(level: Level): void {
   const id: HTMLElement = taskArea.querySelector('.id')!;
   const task: HTMLElement = taskArea.querySelector('.nav-task-text')!;
   const example: HTMLElement = taskArea.querySelector('.nav-task-example')!;
+  const layer: HTMLInputElement = document.querySelector('.editor-layer')!;
 
   mainTitle.innerHTML = level.toDo;
   number.innerHTML = (getLocalStorage() + 1).toString();
@@ -26,6 +27,7 @@ export function setCurTask(level: Level): void {
     if(check.classList.contains('help-done')) check.classList.remove('help-done');
     if(check.classList.contains('done')) check.classList.remove('done');
   }
+  layer.innerHTML = '';
   subtitle.innerHTML = level.helpText.subtitle;
   id.innerHTML = level.helpText.id;
   task.innerHTML = level.helpText.task;
