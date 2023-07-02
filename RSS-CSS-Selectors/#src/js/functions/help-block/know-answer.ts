@@ -1,6 +1,7 @@
 import { currentLevel } from "../change-level/change-level"
 import { LEVELS } from "../level-storage/arr-level"
 
+
 // Печать ответа
 export function knowAnswer(): void {
   const input: HTMLInputElement = document.querySelector('.editor__input')!;
@@ -8,6 +9,9 @@ export function knowAnswer(): void {
   
   button.addEventListener(('click'), (): void => {
     button.classList.add('game__button_close');
+
+    LEVELS[currentLevel - 1].helpUsed = true;
+
     const answer: string = LEVELS[currentLevel - 1].answer;
     const text: string = answer;
 

@@ -20,8 +20,18 @@ export function markLevel(num: number): void {
   // Анимация галочки прохождения
   const marks: NodeListOf<HTMLElement> = document.querySelectorAll('.lvl-check')!;
   const curMark: HTMLElement = document.querySelector('.nav-check')!;
-  curMark.classList.add('done');
-  marks[num].classList.add('done');
+
+  let className;
+  // Если была использована помощь
+  if (LEVELS[currentLevel - 1].helpUsed) {
+    className = 'help-done';
+    LEVELS[num].helpUsed = true;
+  } else {
+    className = 'done';
+  }
+  
+  curMark.classList.add(className);
+  marks[num].classList.add(className);
   LEVELS[num].status = true;
 }
 

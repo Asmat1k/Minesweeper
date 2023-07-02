@@ -17,10 +17,14 @@ export function setCurTask(level: Level): void {
   mainTitle.innerHTML = level.toDo;
   number.innerHTML = (getLocalStorage() + 1).toString();
   title.innerHTML = level.helpText.title;
-  if (level.status) {
-    check.classList.add('done');
-  } else if(check.classList.contains('done')) {
-    check.classList.remove('done');
+  // Если левел был проеден или была использована помощь
+  if (level.status || level.helpUsed) {
+    if(level.helpUsed) check.classList.add('help-done');
+    if(level.status) check.classList.add('done');
+  } else {
+    // Снимаем классы если есть и задание не сдано
+    if(check.classList.contains('help-done')) check.classList.remove('help-done');
+    if(check.classList.contains('done')) check.classList.remove('done');
   }
   subtitle.innerHTML = level.helpText.subtitle;
   id.innerHTML = level.helpText.id;

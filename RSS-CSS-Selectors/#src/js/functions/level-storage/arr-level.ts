@@ -7,6 +7,7 @@ export const LEVELS: Level[] = [
     toDo: 'Select the plates',
     answer: 'testing cool typing',
     status: false,
+    helpUsed: false,
     htmlCode:  
 `&ltdiv class="table"&gt
   &ltplate/&gt
@@ -27,6 +28,7 @@ export const LEVELS: Level[] = [
   {
     toDo: 'Select the bento boxes',
     answer: 'answer - 2',
+    helpUsed: false,
     status: false,
     htmlCode:  
 `&ltdiv class="table"&gt
@@ -49,6 +51,7 @@ export const LEVELS: Level[] = [
     toDo: '3',
     answer: 'idk',
     status: false,
+    helpUsed: false,
     htmlCode:  
 `&ltdiv class="table"&gt
   &ltplate&gt
@@ -68,6 +71,7 @@ export const LEVELS: Level[] = [
     toDo: '4',
     answer: 'ho-ho-ho',
     status: false,
+    helpUsed: false,
     htmlCode:  
 `&ltdiv class="table"&gt
   &ltplate&gt
@@ -87,6 +91,7 @@ export const LEVELS: Level[] = [
     toDo: '5',
     answer: '5',
     status: false,
+    helpUsed: false,
     htmlCode:  
 `&ltdiv class="table"&gt
   &ltplate&gt
@@ -106,6 +111,7 @@ export const LEVELS: Level[] = [
     toDo: '6',
     answer: 'net voobrazhenia',
     status: false,
+    helpUsed: false,
     htmlCode:  
 `&ltdiv class="table"&gt
   &ltplate&gt
@@ -125,6 +131,7 @@ export const LEVELS: Level[] = [
     toDo: '7',
     answer: '7',
     status: false,
+    helpUsed: false,
     htmlCode:  
 `&ltdiv class="table"&gt
   &ltplate&gt
@@ -144,6 +151,7 @@ export const LEVELS: Level[] = [
     toDo: '8',
     answer: '8',
     status: false,
+    helpUsed: false,
     htmlCode:  
 `&ltdiv class="table"&gt
   &ltplate&gt
@@ -163,6 +171,7 @@ export const LEVELS: Level[] = [
     toDo: 'Select the bento boxes',
     answer: '9',
     status: false,
+    helpUsed: false,
     htmlCode:  
 `&ltdiv class="table"&gt
   &ltplate&gt
@@ -182,6 +191,7 @@ export const LEVELS: Level[] = [
     toDo: '10',
     answer: '10',
     status: false,
+    helpUsed: false,
     htmlCode:  
 `&ltdiv class="table"&gt
   &ltplate&gt

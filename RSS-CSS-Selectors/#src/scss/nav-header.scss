@@ -153,3 +153,16 @@
   75% { opacity: 1;  border-color: green; transform: rotate(40deg) scale(1.0); }
   100% { opacity: 1; border-color: green; }
 }
+
+.help-done {
+  animation: helpDone 1.5s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes helpDone {
+  0%  { opacity: .4; border-color: yellow; }
+  25% { opacity: .6; border-color: yellow; transform: rotate(40deg) scale(0.9); }
+  50% { opacity: .8; border-color: yellow; transform: rotate(40deg) scale(1.1); }
+  75% { opacity: 1;  border-color: yellow; transform: rotate(40deg) scale(1.0); }
+  100% { opacity: 1; border-color: yellow; }
+}

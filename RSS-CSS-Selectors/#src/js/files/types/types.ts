@@ -18,6 +18,7 @@ export type Level = {
   toDo: string,
   answer: string,
   status: boolean,
+  helpUsed: boolean,
   htmlCode: string,
   tableComponents: string,
   helpTitle: string,

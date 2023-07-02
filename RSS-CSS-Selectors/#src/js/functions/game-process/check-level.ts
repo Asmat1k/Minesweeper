@@ -33,9 +33,7 @@ function inputValidate(input: HTMLInputElement, area: HTMLElement) {
   if (input.value === LEVELS[currentLevel - 1].answer) {
     markLevel(currentLevel - 1);
     // время на анимацию
-    //! TODO Сделать, чтобы галочка была желтой если подсказка была использована
     setTimeout(() => nextLevel(), 2000) 
-    console.log('Button win!');
   } else {
     area.classList.add('shake');
     setTimeout(function() {
