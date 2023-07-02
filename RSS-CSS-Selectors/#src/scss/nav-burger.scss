@@ -61,6 +61,20 @@
         background: #ffffff0d;
       }
     }
+    .header-nav__wrapper {
+      display: flex;
+      justify-content: center;
+      
+      column-gap: 10px;
+      
+      padding: 10px 20px;
+
+      font-size: 15px;
+      line-height: 160%;
+      &:hover {
+        background: #ffffff0d;
+      }
+    }
     .current {
       font-weight: bold;
       color: #AAA;

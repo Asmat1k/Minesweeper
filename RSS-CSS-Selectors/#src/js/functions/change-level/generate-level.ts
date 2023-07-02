@@ -14,4 +14,11 @@ export function generateLvlList(): void {
     item.innerHTML = `<span class="lvl-check"></span><span class="lvl-number">${i + 1}</span><a class="header-nav__link">${LEVELS[i].helpText.id}</a>`;
     list.appendChild(item);
   }
+  const wrapper: HTMLElement = document.createElement('div');
+  wrapper.classList.add('header-nav__wrapper')
+  const button: HTMLElement = document.createElement('a');
+  button.classList.add('header-nav__button')
+  button.innerHTML = 'RESET';
+  wrapper.appendChild(button);
+  list.appendChild(wrapper);
 }

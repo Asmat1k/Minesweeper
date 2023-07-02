@@ -7,6 +7,7 @@ import { generateLvlList } from './functions/change-level/generate-level';
 import { knowAnswer } from './functions/help-block/know-answer';
 import { checkCurRes } from './functions/game-process/check-level';
 import { colorInput } from './functions/game-process/color-input';
+import { resetGame } from './functions/game-process/reset';
 
 // Проверка поддержки webp, добавление класса webp или no-webp для HTML
 myFunctions.isWebp();
@@ -25,3 +26,5 @@ changeLevel();
 checkCurRes();
 // Окраска ввода
 colorInput()
+// Ресет игры
+resetGame();

@@ -76,9 +76,11 @@ function changeOnArrow(): void {
   })
 }
 
-export function updateList(): void {
+export function updateList(call?: boolean): void {
   const items = document.querySelectorAll('.header-nav__item')!;
   deactivateItem();
+  // Если произошел ресет игры
+  if (call) currentLevel = getLocalStorageforCur();
   items[currentLevel - 1].classList.add('current');
 }
 
