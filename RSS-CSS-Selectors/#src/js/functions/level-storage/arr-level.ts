@@ -112,7 +112,7 @@ export const LEVELS: Level[] = [
   {
     toDo: 'Select lemon on the plate',
     type: '#fancy lemon',
-    answer: '#fancylemon|plate>lemon|lemon:first-child|lemon:nth-child(1)|',
+    answer: '#fancylemon|plate>lemon|lemon:first-child|lemon:nth-child(1)|platelemon|',
     status: false,
     helpUsed: false,
     htmlCode:  
@@ -155,7 +155,7 @@ export const LEVELS: Level[] = [
   {
     toDo: 'Select everything on the plate',
     type: 'plate *',
-    answer: 'plate*|plate>*|apple,lemon|plate>apple,plate>lemon|',
+    answer: 'plate*|plate>*|apple,lemon|plate>apple,plate>lemon|lemon,apple',
     status: false,
     helpUsed: false,
     htmlCode:  

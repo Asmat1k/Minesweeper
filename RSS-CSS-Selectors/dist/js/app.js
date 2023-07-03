@@ -592,7 +592,7 @@
             }, {
                 toDo: "Select lemon on the plate",
                 type: "#fancy lemon",
-                answer: "#fancylemon|plate>lemon|lemon:first-child|lemon:nth-child(1)|",
+                answer: "#fancylemon|plate>lemon|lemon:first-child|lemon:nth-child(1)|platelemon|",
                 status: false,
                 helpUsed: false,
                 htmlCode: `&ltdiv class="table"&gt\n  &ltplate id = 'fancy'&gt\n    &ltlemon/&gt\n  &lt/plate&gt\n  &ltlemon class = 'small'/&gt\n&lt/div&gt`,
@@ -622,7 +622,7 @@
             }, {
                 toDo: "Select everything on the plate",
                 type: "plate *",
-                answer: "plate*|plate>*|apple,lemon|plate>apple,plate>lemon|",
+                answer: "plate*|plate>*|apple,lemon|plate>apple,plate>lemon|lemon,apple",
                 status: false,
                 helpUsed: false,
                 htmlCode: `&ltdiv class="table"&gt\n  &ltplate&gt\n    &ltapple/&gt\n  &lt/plate&gt\n  &ltplate&gt\n    &ltlemon/&gt\n  &lt/plate&gt\n&lt/div&gt`,
