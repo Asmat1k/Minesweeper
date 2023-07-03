@@ -1,3 +1,5 @@
+import { endMessageClose } from "../game-process/end-game";
+
 // МЕНЮ-БУРГЕР
 export function menuInit(): void {
   if (document.querySelector('.nav-burger')) {
@@ -12,7 +14,7 @@ export function menuInit(): void {
   }
 }
 
-function lineChange(): void {
+export function lineChange(): void {
   const lines = document.querySelectorAll('.burger-line');
   for(let i = 0; i < lines.length; i += 1) {
     lines[i].classList.toggle('active');
@@ -25,6 +27,7 @@ export function menuOpen(): void {
 }
 
 export function menuClose(): void {
+  endMessageClose();
   lineChange();
   document.documentElement.classList.remove('menu-open');
   document.querySelector('.nav__header_menu')!.classList.remove('menu-open');

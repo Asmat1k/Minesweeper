@@ -14,7 +14,7 @@ export function knowAnswer(): void {
 
     LEVELS[currentLevel - 1].helpUsed = true;
 
-    const answer: string = LEVELS[currentLevel - 1].answer;
+    const answer: string = LEVELS[currentLevel - 1].type;
     const text: string = answer;
 
     let count: number = 0;

@@ -2,6 +2,8 @@ import { LEVELS } from "../level-storage/arr-level";
 import { initGame } from "../../init-game";
 import { menuClose } from "../menu/burger";
 import { setLocalStorage } from "../../files/functions";
+import { endMessageOpen } from "../game-process/end-game";
+import { levelsDone } from "../game-process/check-level";
 
 export let currentLevel: number = getLocalStorageforCur();
 
@@ -40,10 +42,19 @@ export function nextLevel(): void {
   const items = document.querySelectorAll('.header-nav__item')!;
   const input: HTMLInputElement = document.querySelector('.editor__input')!;
   input.value = '';
-  currentLevel += 1;
-  deactivateItem();
-  items[currentLevel - 1].classList.add('current');
-  changeInfo();
+  if (levelsDone === LEVELS.length) {
+    endMessageOpen();
+  } else {
+    // Если максимальный уровень
+    if (currentLevel === LEVELS.length) {
+      currentLevel = 1;
+      setLocalStorage('level', '1');
+    } else if (currentLevel !== LEVELS.length) currentLevel += 1;
+
+    deactivateItem();
+    items[currentLevel - 1].classList.add('current');
+    changeInfo();
+  }
 }
 
 // Смена уровней

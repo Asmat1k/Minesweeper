@@ -105,8 +105,8 @@ body {
 //<ОБОЛОЧКА>
 .wrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   color: rgba(255,255,255,.3);
 }
@@ -118,7 +118,7 @@ body {
 //</ОБОЛОЧКА>
 
 //<ПОДЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>
-@import "game";
-@import "attr";
-@import "navigation";
+@import "game/game";
+@import "attribute/attr";
+@import "nav/navigation";
 //</ПОДЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>

@@ -7,21 +7,14 @@ export type Task = {
   example: string, 
 }
 
-// Информация с кодом элементов посуды
-export type Dishes = {
-  plate: string,
-  apple: string,
-  plateApple: string,
-}
-
 export type Level = {
   toDo: string,
+  type: string,
   answer: string,
   status: boolean,
   helpUsed: boolean,
   htmlCode: string,
   tableComponents: string,
-  helpTitle: string,
   helpText: helpLevel
 }
 

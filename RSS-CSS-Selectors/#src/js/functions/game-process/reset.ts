@@ -2,11 +2,14 @@ import { setLocalStorage } from "../../files/functions";
 import { initGame } from "../../init-game";
 import { updateList } from "../change-level/change-level";
 import { LEVELS } from "../level-storage/arr-level";
+import { endMessageClose } from "./end-game";
 
 export function resetGame() {
   const button: HTMLElement = document.querySelector('.header-nav__wrapper')!;
   button?.addEventListener(('click'), () => {
     setLocalStorage('level', '1');
+    // Если открыто сообщение о победе
+    endMessageClose();
     // Обнуление обьекта
     resetLevelsObj();
     // Снятие галочек

@@ -23,12 +23,14 @@
     }
     .table {
       display: inline-flex;
+      align-items: center;
       justify-content: space-around;
       position: relative;
 
       transform-style: preserve-3d;
       outline: solid 1px transparent;
       padding: 15px 15px 22px 15px;
+      white-space: nowrap;
 
       min-height: 142px;
       width: 100%;

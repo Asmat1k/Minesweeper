@@ -13,6 +13,14 @@
     background: rgba(0,0,0,.2);
     padding: 8px 15px 10px 15px;
     border-radius: 20px;
+    transition: .2s;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  .answer:active {
+    transform: scale(0.9);
   }
   .game__button_close {
     pointer-events: none;

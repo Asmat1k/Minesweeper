@@ -28,6 +28,18 @@
     box-shadow: 0 0 0 6px rgba(255,255,255,.4);
   }
 }
+#fancy:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 45px);
+  top: calc(50% - 45px);
+  height: 90px;
+  width: 90px;
+  border-radius: 60px;
+  border: solid 10px green;
+  opacity: .4;
+}
 
 .table .plate-hover {
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.4);
@@ -45,9 +57,77 @@
 }
 
 
+.small {
+  transform: scale(0.5);
+}
+.medium {
+  transform: scale(0.7);
+}
+.big {
+  transform: scale(1.5);
+}
+
+
+.table lemon {
+  position: relative;
+  z-index: 3;
+  background: #fffb00;
+  border-color: #e6e211;
+  box-shadow: 0px 5px 0px rgba(0,0,0,.2);
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 3px 4px 5px 4px;
+  height: 45px;
+  width: 35px;
+  margin: 20px 10px;
+  &::after {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: -3px;
+
+    background: rgb(77, 37, 0);
+    border-radius: 100px;
+
+    height: 5px;
+    width: 5px;
+  }
+  &:hover {
+    box-shadow: 0 0 0 6px rgba(0,0,0,.2);
+  }
+}
+
+.table pumpkin {
+  position: relative;
+  z-index: 3;
+  background: #ffbb00;
+  border-color: #dba204;
+  box-shadow: 0px 5px 0px rgba(0,0,0,.2);
+  border-radius: 100px;
+  border-style: solid;
+  border-width: 4px 4px 8px 4px;
+  height: 70px;
+  width: 80px;
+  margin: 20px 10px;
+  &::after {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: -10px;
+
+    background: green;
+    border-radius: 20px 0;
+
+    height: 20px;
+    width: 5px;
+  }
+  &:hover {
+    box-shadow: 0 0 0 6px rgba(0,0,0,.2);
+  }
+}
 
 .table apple, .game__logo apple {
-  position: absolute;
+  position: relative;
   z-index: 3;
   background: #e41919;
   border-color: #ab1212;
@@ -61,6 +141,20 @@
   &:hover {
     box-shadow: 0 0 0 6px rgba(0,0,0,.2);
   }
+}
+.game__logo apple {
+  position: absolute;
+}
+.table plate apple {
+  position: absolute;
+}
+.table plate pumpkin {
+  position: absolute;
+  top: -10px;
+}
+.table plate lemon {
+  position: absolute;
+  left: 22%;
 }
 
 plate apple {
@@ -109,5 +203,6 @@ plate apple {
 // Выбранный элемент
 .vanish {
   opacity: 0;
-  transition: .5s;
+  transition: 1s;
 }
+
