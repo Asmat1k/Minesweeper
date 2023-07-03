@@ -55,7 +55,7 @@
       flex-direction: column;
       position: relative;
 
-      padding: 15px 10px;
+      padding: 10px 10px 15px 10px;
       .editor__text {
         pre {
           display: block;
@@ -69,14 +69,17 @@
       }
     }
     .editor__input {
-      margin-bottom: 3px;
       font-family: "Inconsolata";
       color: #333;
       background: #efefef;
 
+      padding: 5px;
+
       color: transparent;
       background-color: transparent;
       border-color: transparent;
+
+      width: calc(100% - 36.4px);
     }
     pre {
       display: block;
@@ -102,7 +105,7 @@
       align-items: center;
       position: absolute;
       right: 5px;
-      top: 5px;
+      top: 10px;
       
       cursor: pointer;
       user-select: none; 
