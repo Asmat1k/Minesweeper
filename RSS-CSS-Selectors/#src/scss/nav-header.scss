@@ -125,6 +125,7 @@
       background: #ffffff33;
       width: 10%;
       height: 2px;
+      transition: .3s;
       &::after {
         content: "";
         position: absolute;
@@ -136,6 +137,7 @@
 
         height: 4px;
         width: 4px;
+        transition: .3s;
       }
     }
   }
