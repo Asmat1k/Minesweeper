@@ -1,5 +1,4 @@
 import { setCurHtml, setCurTable, setCurTask } from "./functions/game-process/set-level";
-import { initHelp } from "./functions/help-block/initHelp";
 import { LEVELS } from "./functions/level-storage/arr-level";
 import { colorBlock } from "./functions/game-process/color";
 import { generateLvlList } from "./functions/change-level/generate-level";
@@ -7,7 +6,6 @@ import * as menuFunctions from './functions/menu/burger';
 
 // Инициализация игры
 export function initGame(): void {
-  initHelp();
   let id: number = getLocalStorage();
   setCurTable(LEVELS[id]);
   setCurHtml(LEVELS[id]);
