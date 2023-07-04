@@ -354,10 +354,9 @@
             });
             exports.colorBlock = void 0;
             const highlight_js_1 = __importDefault(__webpack_require__(8128));
-            //! TODO Пофиксить Any
-                        function colorBlock(className) {
+            function colorBlock(className) {
                 document.querySelectorAll(className).forEach((el => {
-                    highlight_js_1.default.highlightElement(el);
+                    el instanceof HTMLElement && highlight_js_1.default.highlightElement(el);
                 }));
             }
             exports.colorBlock = colorBlock;
