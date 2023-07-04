@@ -1,7 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Exo+2:wght@200;
-
-400;700&family=Inconsolata:wght@300;400;700&display=swap);
 @import url(https://css.gg/css);
+
 [class*=__container] {
   max-width: 73.125rem;
   -webkit-box-sizing: content-box;
@@ -1112,10 +1110,11 @@ plate apple {
 }
 
 .nav__header .nav-info .nav__buttons .nav-burger .active:first-child {
-  top: 50%;
-  -webkit-transform: rotate(135deg);
-      -ms-transform: rotate(135deg);
-          transform: rotate(135deg);
+  top: 45%;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  opacity: 0;
 }
 
 .nav__header .nav-info .nav__buttons .nav-burger .active:nth-of-type(2) {
@@ -1127,9 +1126,9 @@ plate apple {
 
 .nav__header .nav-info .nav__buttons .nav-burger .active:last-child {
   bottom: 45%;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .nav__header .nav-info .nav__buttons .nav-burger:hover .burger-line {

@@ -100,8 +100,9 @@
           opacity: 1;
           transition: .3s;
           &:first-child {
-            top: 50%;
-            transform: rotate(135deg);
+            top: 45%;
+            transform: rotate(-45deg);
+            opacity: 0;
           }
           &:nth-of-type(2) {
             top: 45%;
@@ -109,7 +110,7 @@
           }
           &:last-child {
             bottom: 45%;
-            transform: rotate(45deg);
+            transform: rotate(-45deg);
           }
         }
         &:hover .burger-line {

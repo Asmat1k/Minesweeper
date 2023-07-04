@@ -47,6 +47,18 @@ function inputValidate(input: HTMLInputElement, area: HTMLElement) {
       attempt = attempt.replace(' ', '');
     }
   }
+  // Для проверки через js
+  // let done: number = 0;
+  // let items: NodeListOf<HTMLElement> = document.querySelectorAll(attempt)!;
+  // let animated: NodeListOf<HTMLElement> = document.querySelectorAll('.animated')!;
+  // items.forEach((item) => {
+  //   if (item.classList.contains('animated')) {
+  //     done += 1;
+  //   }
+  // })
+  // if (done === animated.length) {
+  //   console.log('right')
+  // }
   // Проверка
   if (LEVELS[currentLevel - 1].answer.split('|').includes(attempt)) {
     levelsDone += 1;
