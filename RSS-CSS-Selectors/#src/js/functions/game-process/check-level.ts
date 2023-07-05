@@ -3,6 +3,10 @@ import { currentLevel, markLevel, nextLevel } from "../change-level/change-level
 
 export let levelsDone = 0;
 
+export function resetLevelsDoneCount() {
+  levelsDone = 0;
+}
+
 // Проверка результатов
 export function checkCurRes(): void {
   const attempt: HTMLInputElement = document.querySelector('.editor__input')!;
@@ -47,6 +51,7 @@ function inputValidate(input: HTMLInputElement, area: HTMLElement) {
       attempt = attempt.replace(' ', '');
     }
   }
+  // console.log(attempt);
   // Для проверки через js
   // let done: number = 0;
   // let items: NodeListOf<HTMLElement> = document.querySelectorAll(attempt)!;
@@ -59,15 +64,20 @@ function inputValidate(input: HTMLInputElement, area: HTMLElement) {
   // if (done === animated.length) {
   //   console.log('right')
   // }
+  const layer: HTMLElement = document.querySelector('.editor-layer')!;
   // Проверка
-  if (LEVELS[currentLevel - 1].answer.split('|').includes(attempt)) {
+  if (attempt.length > 0 && LEVELS[currentLevel - 1].answer.split('|').includes(attempt)) {
+    // ЗАЩИТА ОТ СПАМА КНОПОК, ПРИ ВЕРНОМ ОТВЕТЕ ИНПУТ ОЧИЩАЕТСЯ
+    input.value = '';
+    layer.innerHTML = '';
+
     levelsDone += 1;
     // Анимация на маркировку
     markLevel(currentLevel - 1);
     // Анимация на стол
     playAnimation();
     // время на анимацию
-    setTimeout(() => nextLevel(), 2000) 
+    setTimeout(() => nextLevel(), 1000) 
   } else {
     area.classList.add('shake');
     setTimeout(function() {

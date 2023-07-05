@@ -958,8 +958,8 @@ plate apple {
 
 .vanish {
   opacity: 0;
-  -webkit-transition: 1s;
-  transition: 1s;
+  -webkit-transition: 0.9s;
+  transition: 0.9s;
 }
 
 .nav__header .nav-info {
@@ -1162,8 +1162,8 @@ plate apple {
 }
 
 .done {
-  -webkit-animation: done 1.5s 1;
-          animation: done 1.5s 1;
+  -webkit-animation: done 0.9s 1;
+          animation: done 0.9s 1;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -1235,8 +1235,8 @@ plate apple {
 }
 
 .help-done {
-  -webkit-animation: helpDone 1.5s 1;
-          animation: helpDone 1.5s 1;
+  -webkit-animation: helpDone 0.9s 1;
+          animation: helpDone 0.9s 1;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
