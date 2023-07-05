@@ -273,10 +273,14 @@
             Object.defineProperty(exports, "__esModule", {
                 value: true
             });
-            exports.playAnimation = exports.checkCurRes = exports.levelsDone = void 0;
+            exports.playAnimation = exports.checkCurRes = exports.resetLevelsDoneCount = exports.levelsDone = void 0;
             const arr_level_1 = __webpack_require__(1849);
             const change_level_1 = __webpack_require__(8624);
             exports.levelsDone = 0;
+            function resetLevelsDoneCount() {
+                exports.levelsDone = 0;
+            }
+            exports.resetLevelsDoneCount = resetLevelsDoneCount;
             function checkCurRes() {
                 const attempt = document.querySelector(".editor__input");
                 inputAnimate(attempt);
@@ -307,11 +311,14 @@
             function inputValidate(input, area) {
                 let attempt = input.value;
                 for (let i = 0; i < attempt.length; i += 1) if (attempt[i] === " ") attempt = attempt.replace(" ", "");
-                if (arr_level_1.LEVELS[change_level_1.currentLevel - 1].answer.split("|").includes(attempt)) {
+                const layer = document.querySelector(".editor-layer");
+                if (attempt.length > 0 && arr_level_1.LEVELS[change_level_1.currentLevel - 1].answer.split("|").includes(attempt)) {
+                    input.value = "";
+                    layer.innerHTML = "";
                     exports.levelsDone += 1;
                     (0, change_level_1.markLevel)(change_level_1.currentLevel - 1);
                     playAnimation();
-                    setTimeout((() => (0, change_level_1.nextLevel)()), 2e3);
+                    setTimeout((() => (0, change_level_1.nextLevel)()), 1e3);
                 } else {
                     area.classList.add("shake");
                     setTimeout((function() {
@@ -392,6 +399,7 @@
             const init_game_1 = __webpack_require__(3678);
             const change_level_1 = __webpack_require__(8624);
             const arr_level_1 = __webpack_require__(1849);
+            const check_level_1 = __webpack_require__(4623);
             const end_game_1 = __webpack_require__(848);
             function resetGame() {
                 const button = document.querySelector(".header-nav__wrapper");
@@ -401,6 +409,7 @@
                     resetLevelsObj();
                     resetLevelCheck();
                     (0, change_level_1.updateList)(true);
+                    (0, check_level_1.resetLevelsDoneCount)();
                     (0, init_game_1.initGame)();
                 }));
             }
@@ -486,6 +495,7 @@
                 const layer = document.querySelector(".editor-layer");
                 const button = document.querySelector(".answer");
                 button.addEventListener("click", (() => {
+                    button.blur();
                     button.classList.add("game__button_close");
                     arr_level_1.LEVELS[change_level_1.currentLevel - 1].helpUsed = true;
                     const answer = arr_level_1.LEVELS[change_level_1.currentLevel - 1].type;
@@ -502,7 +512,7 @@
                             button.classList.remove("game__button_close");
                             clearInterval(interval);
                         }
-                    }), 100);
+                    }), 40);
                 }));
             }
             exports.knowAnswer = knowAnswer;
@@ -561,7 +571,7 @@
             }, {
                 toDo: "Select pumpkin on a plate",
                 type: "plate .big",
-                answer: "plate.big|plate>big|.big|pumpkin:first-child|pumpkin:nth-child(1)|",
+                answer: "plate.big|plate>big|.big|pumpkin:first-child|pumpkin:nth-child(1)|platepumpkin|plate>pumpkin|",
                 status: false,
                 helpUsed: false,
                 htmlCode: `&ltdiv class="table"&gt\n  &ltplate&gt\n    &ltpumpkin class='big'/&gt\n  &lt/plate&gt\n  &ltpumpkin class = 'small'/&gt\n&lt/div&gt`,

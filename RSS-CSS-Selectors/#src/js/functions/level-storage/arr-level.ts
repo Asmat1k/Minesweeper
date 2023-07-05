@@ -70,7 +70,7 @@ export const LEVELS: Level[] = [
   {
     toDo: 'Select pumpkin on a plate',
     type: 'plate .big',
-    answer: 'plate.big|plate>big|.big|pumpkin:first-child|pumpkin:nth-child(1)|',
+    answer: 'plate.big|plate>big|.big|pumpkin:first-child|pumpkin:nth-child(1)|platepumpkin|plate>pumpkin|',
     status: false,
     helpUsed: false,
     htmlCode:  

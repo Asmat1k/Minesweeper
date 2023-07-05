@@ -2,6 +2,7 @@ import { setLocalStorage } from "../../files/functions";
 import { initGame } from "../../init-game";
 import { updateList } from "../change-level/change-level";
 import { LEVELS } from "../level-storage/arr-level";
+import { resetLevelsDoneCount } from "./check-level";
 import { endMessageClose } from "./end-game";
 
 export function resetGame() {
@@ -17,6 +18,9 @@ export function resetGame() {
     // Обновление листа до текущего
     // ? Нужно ли обнулять и сохранять на текущем левеле?
     updateList(true);
+    // Сброс счетчика пройденых уровней
+    resetLevelsDoneCount();
+
     initGame();
   });
 }
