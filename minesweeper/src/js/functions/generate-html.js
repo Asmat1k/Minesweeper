@@ -1,0 +1,187 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/extensions */
+/* eslint-disable no-trailing-spaces */
+let score = [];
+let theme;
+
+function getLocalStorage() {
+  if (localStorage.getItem('leader')) {
+    score = localStorage.getItem('leader').split(',');
+  }
+  // if (localStorage.getItem('theme')) {
+  //   theme = localStorage.getItem('theme');
+  // }
+}
+
+export default function generateBlocks(size, classSize) {
+  getLocalStorage();
+  const headerClasses = ['game-click', 'game-status', 'game-score'];
+  const footerClasses = ['game-mines', 'game-block', 'game-flags'];
+  const MAIN = document.createElement('main');
+  MAIN.classList.add('block');
+  
+  const WRAPPER = document.createElement('div');
+  WRAPPER.classList.add('game__wrapper');
+  if (theme === 'dark') WRAPPER.classList.add('dark-1');
+  else WRAPPER.classList.add('light-1');
+  WRAPPER.classList.add(classSize);
+
+  // заполнение хедера
+  const HEADER = document.createElement('div');
+  HEADER.classList.add('game__header');
+  if (theme === 'dark') HEADER.classList.add('dark-2');
+  else HEADER.classList.add('light-2');
+  for (let i = 0; i < 3; i += 1) {
+    const elem = document.createElement('div');
+    elem.classList.add(headerClasses[i]);
+    if (i === 0 || i === 2) {
+      elem.classList.add('numbers');
+      elem.innerHTML = '000';
+    } else if (i === 1) {
+      elem.classList.add('smile');
+      if (theme === 'dark') elem.classList.add('dark-1');
+      else elem.classList.add('light-1');
+      elem.innerHTML = '🙂';
+    }
+    HEADER.appendChild(elem);
+  }
+  WRAPPER.appendChild(HEADER);
+
+  // тело игры
+  const BODY = document.createElement('div');
+  BODY.classList.add('game__body');
+  if (theme === 'dark') BODY.classList.add('dark-2');
+  else BODY.classList.add('light-2');
+  for (let i = 0; i < size; i += 1) {
+    const elem = document.createElement('div');
+    elem.classList.add('game__row');
+    for (let j = 0; j < size; j += 1) {
+      const block = document.createElement('div');
+      block.classList.add('game__block');
+      block.classList.add(classSize);
+      if (theme === 'dark') block.classList.add('dark-1');
+      else block.classList.add('light-1');
+      elem.appendChild(block);
+    }
+    BODY.appendChild(elem);
+  }
+  WRAPPER.appendChild(BODY);
+
+  // футер игры
+  const FOOTER = document.createElement('div');
+  FOOTER.classList.add('game__footer');
+  if (theme === 'dark') FOOTER.classList.add('dark-2');
+  else FOOTER.classList.add('light-2');
+  for (let i = 0; i < 3; i += 1) {
+    const block = document.createElement('div');
+    block.classList.add(footerClasses[i]);
+    if (i === 0 || i === 2) {
+      block.classList.add('numbers');
+      if (i === 0) block.innerHTML = '000';
+      if (i === 2) block.innerHTML = '000';
+    } else {
+      block.classList.add('game__block');
+      block.classList.add('flag');
+      if (theme === 'dark') block.classList.add('dark-1');
+      else block.classList.add('light-1');
+      block.innerHTML = '⛏️';
+    }
+    FOOTER.appendChild(block);
+  }
+  WRAPPER.appendChild(FOOTER);
+
+  // Конец игры
+  const FINAL_MESSAGE = document.createElement('div');
+  FINAL_MESSAGE.classList.add('game_end-message');
+  const TEXT = document.createElement('div');
+  TEXT.classList.add('message-text');
+  FINAL_MESSAGE.appendChild(TEXT);
+  
+  WRAPPER.appendChild(FINAL_MESSAGE);
+  MAIN.appendChild(WRAPPER);
+
+  // значок настроек
+  const SETTINGS__ICON = document.createElement('div');
+  SETTINGS__ICON.classList.add('settings__icon');
+  SETTINGS__ICON.innerHTML = 'settings';
+  document.body.appendChild(SETTINGS__ICON);
+
+  // значок настроек
+  const SETTINGS__POPUP = document.createElement('div');
+  SETTINGS__POPUP.classList.add('settings__popup');
+
+  // настройка музыки
+  const SETTINGS__MUSIC = document.createElement('div');
+  SETTINGS__MUSIC.classList.add('settings__music');
+
+  const MUSIC__TEXT = document.createElement('div');
+  MUSIC__TEXT.classList.add('settings__text');
+  MUSIC__TEXT.innerHTML = 'Sound:';
+  SETTINGS__MUSIC.appendChild(MUSIC__TEXT);
+
+  // переключатель
+  const SWITCH = document.createElement('label');
+  SWITCH.classList.add('switch');
+  
+  const INPUT = document.createElement('input');
+  INPUT.classList.add('switch__input');
+  INPUT.setAttribute('type', 'checkbox');
+  // если звук включен
+  if (localStorage.getItem('audio') === 'true') {
+    INPUT.classList.add('on');
+    INPUT.checked = true;
+  }
+  SWITCH.appendChild(INPUT);
+
+  const SPAN = document.createElement('span');
+  SPAN.classList.add('switch__slider');
+  SWITCH.appendChild(SPAN);
+
+  SETTINGS__MUSIC.appendChild(SWITCH);
+
+  const THEME = document.createElement('div');
+  THEME.classList.add('settings__theme');
+  THEME.innerHTML = '<span class="theme dark">🔅</span>';
+
+  const COUNT = document.createElement('div');
+  COUNT.classList.add('settings__lvl');
+  COUNT.innerHTML = '<span class="lvl easy">Easy</span> &nbsp / &nbsp <span class="lvl medium">Medium</span> &nbsp  / &nbsp <span class="lvl hard">Hard</span>';
+  
+  const BOMBS = document.createElement('div');
+  BOMBS.classList.add('settings__bombs');
+  BOMBS.innerHTML = '<div calss="settings__text"> Bombs: </div> <input type="number" max="99" min="10" value="10" class="settings__input"/> <button class="settings__button">ok</button>';
+
+  SETTINGS__POPUP.appendChild(SETTINGS__MUSIC);
+  SETTINGS__POPUP.appendChild(THEME);
+  SETTINGS__POPUP.appendChild(COUNT);
+  SETTINGS__POPUP.appendChild(BOMBS);
+
+  // значок лидера
+  const LEADER__ICON = document.createElement('div');
+  LEADER__ICON.classList.add('leader__icon');
+  LEADER__ICON.innerHTML = 'score';
+  document.body.appendChild(LEADER__ICON);
+
+  const LEADER = document.createElement('div');
+  LEADER.classList.add('leader__popup');
+  const TITLE = document.createElement('div');
+  TITLE.classList.add('teader__title');
+  TITLE.innerHTML = 'Last score:';
+  LEADER.appendChild(TITLE);
+  // из локал сторэдж
+  for (let i = 0; i < 10; i += 1) {
+    const POS = document.createElement('div');
+    POS.classList.add('position');
+    if (score[i]) {
+      POS.innerHTML = `${score[i]} clicks`;
+    } else {
+      POS.innerHTML = '...';
+    }
+    LEADER.appendChild(POS);
+  }
+
+  document.body.appendChild(LEADER);
+  document.body.appendChild(SETTINGS__POPUP);
+
+  document.body.appendChild(MAIN);
+}
